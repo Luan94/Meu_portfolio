@@ -10,8 +10,8 @@ const AboutMe = () => {
   const [index, setIndex] = useState(0);
   const [displayText, setDisplayText] = useState('');
   const [isDeleting, setIsDeleting] = useState(false);
-  const [typingSpeed, setTypingSpeed] = useState(980); // Velocidade de digitação em ms por caractere
-  const [deletingSpeed, setDeletingSpeed] = useState(160); // Velocidade de exclusão em ms por caractere
+  const [typingSpeed, setTypingSpeed] = useState(900); // Velocidade de digitação em ms por caractere
+  const [deletingSpeed, setDeletingSpeed] = useState(900); // Velocidade de exclusão em ms por caractere
   const requestRef = useRef();
 
   useEffect(() => {

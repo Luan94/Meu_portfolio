@@ -1,43 +1,33 @@
 import React, { useState, useEffect } from 'react';
-import styled, { keyframes } from 'styled-components';
-
-// Importar imagens PNG
+import styled from 'styled-components';
+import tw from 'twin.macro';
+import TypewriterHook from '../../../hooks/TypeWriter';
 import CircleImage from '../../../assets/images/banner/circle.png';
 import SemiCircleImage from '../../../assets/images/banner/semi-circle.png';
 import DotsImage from '../../../assets/images/banner/dots.png';
-import backgroundImage from '../../../assets/images/banner/bg-coding.jpg';
-
-const texts = ['texto1', 'faa', 'tssq3', 'tqqq'];
+import backgroundImage from '../../../assets/images/banner/bg-coding-3.jpg';
 
 const BannerContainer = styled.div`
-  position: relative;
-  height: 100vh;
-  overflow: hidden;
-  display: flex;
-  flex-direction: column; /* Alterado para adicionar o parágrafo abaixo do título */
-  justify-content: flex-start;
-  align-items: center;
-
-  @media (max-width: 768px) {
-    flex-direction: column;
-    justify-content: center;
-    align-items: flex-start;
-  }
+  ${tw`relative h-screen overflow-hidden flex flex-col justify-center items-center`}
 `;
 
 const BackgroundImage = styled.div`
+  ${tw`absolute top-0 left-0 w-full h-full bg-cover`}
+  background-image: url(${backgroundImage});
+  filter: blur(4px) grayscale(95%);
   position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
+  top: -10px;
+  left: -10px;
+  width: calc(100% + 20px);
+  height: calc(100% + 20px);
   background-image: url(${backgroundImage});
   background-size: cover;
   background-position: center;
+  filter: blur(4px) grayscale(95%);
 `;
 
 const ParallaxImage = styled.img`
-  position: absolute;
+  ${tw`absolute`}
   top: ${({ top }) => `${top}%`};
   left: ${({ left }) => `${left}%`};
   transform: translate(-50%, -50%);
@@ -46,74 +36,18 @@ const ParallaxImage = styled.img`
 `;
 
 const TextContainer = styled.div`
-  position: absolute;
-  left: 5%;
-  z-index: 1;
-  color: white;
-  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
-
-  @media (max-width: 768px) {
-    left: 50%;
-    transform: translateX(-50%);
-    text-align: center;
-  }
+  ${tw`absolute text-left z-10 text-white`}
+  left: 10%;
 `;
 
 const Title = styled.h1`
-  font-size: 2.5rem;
-  margin-bottom: 1rem;
-
-  @media (max-width: 768px) {
-    font-size: 2rem;
-  }
+  ${tw`text-4xl md:text-6xl lg:text-6xl mb-4 text-left`}
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
 `;
 
-const Paragraph = styled.p`
-  font-size: 1.2rem;
-  margin-bottom: 1rem;
-  overflow: hidden; /* Impede que o texto seja exibido antes da animação começar */
-  white-space: nowrap; /* Impede que o texto quebre em várias linhas */
-  position: relative;
-`;
-
-const TextAnimation = keyframes`
-  from {
-    width: 0;
-  }
-  to {
-    width: 100%;
-  }
-`;
-
-const ReverseTextAnimation = keyframes`
-  from {
-    width: 100%;
-  }
-  to {
-    width: 0;
-  }
-`;
-
-const BlinkAnimation = keyframes`
-  0%, 100% {
-    opacity: 0;
-  }
-  50% {
-    opacity: 1;
-  }
-`;
-
-const BlinkingCursor = styled.span`
-  animation: ${BlinkAnimation} 1s steps(1) infinite;
-  position: absolute;
-  right: 0;
-`;
-
-const Text = styled.span`
-  position: absolute;
-  white-space: nowrap;
-  overflow: hidden;
-  animation: ${TextAnimation} 2s steps(20, end), ${ReverseTextAnimation} 2s steps(20, end) 4s infinite;
+const TypewriterStyled = styled.div`
+  ${tw`text-base md:text-lg lg:text-xl mb-4 overflow-hidden whitespace-nowrap relative`}
+  height: 40px;
 `;
 
 const randomPosition = () => ({
@@ -124,7 +58,6 @@ const randomPosition = () => ({
 const Banner = () => {
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
   const [images, setImages] = useState([]);
-  const [currentTextIndex, setCurrentTextIndex] = useState(0);
 
   useEffect(() => {
     const handleMouseMove = (e) => {
@@ -146,23 +79,15 @@ const Banner = () => {
     setImages(newImages);
   }, []);
 
-  useEffect(() => {
-    const intervalId = setInterval(() => {
-      setCurrentTextIndex((prevIndex) => (prevIndex + 1) % texts.length);
-    }, 7000); // Troca de texto a cada 7 segundos
-
-    return () => clearInterval(intervalId);
-  }, []);
-
   return (
     <BannerContainer>
       <BackgroundImage />
       <TextContainer>
-        <Title>Welcome to our website</Title>
-        <Paragraph>
-          <Text>{texts[currentTextIndex]}</Text>
-          <BlinkingCursor>|</BlinkingCursor>
-        </Paragraph>
+        <Title>Luan Vilas Boas</Title>
+        {/* Aplicando os estilos ao hook Typewriter */}
+        <TypewriterStyled>
+          <TypewriterHook text="Fullstack Web Developer" delay={100} />
+        </TypewriterStyled>      
       </TextContainer>
       {images.map((position, index) => {
         let imageSrc;
@@ -183,7 +108,7 @@ const Banner = () => {
         const mouseY = mousePosition.y;
         const bannerWidth = window.innerWidth;
         const bannerHeight = window.innerHeight;
-        const sensitivity = 450; // Sensibilidade do movimento do mouse
+        const sensitivity = 450;
 
         const deltaX = (bannerWidth / 2 - mouseX) / sensitivity;
         const deltaY = (bannerHeight / 2 - mouseY) / sensitivity;
