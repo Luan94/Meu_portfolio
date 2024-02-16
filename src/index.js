@@ -11,6 +11,7 @@ import Skills from './components/HomePage/skills/skills';
 import Testemonials from './components/HomePage/testemonials/testemonials';
 
 
+
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
