@@ -54,9 +54,7 @@ const AboutMe = () => {
   return (
     <div className="about-me">
       <h2>Skills</h2>
-      <div>
-        <p>{displayText}</p>
-      </div>
+      
     </div>
   );
 };
