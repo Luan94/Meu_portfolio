@@ -12,6 +12,7 @@ const ParallaxImage = styled.img`
   filter: grayscale(100%);
   opacity: 0.5;
   transition: transform 0.3s ease-in-out;
+  width:120px;
 `;
 
 const generateImages = () => {
@@ -21,23 +22,9 @@ const generateImages = () => {
   }));
 };
 
-const BannerParallax = () => {
-  const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
+const BannerParallax = ({ mousePosition }) => {
   const [imagesGenerated, setImagesGenerated] = useState(false);
   const [images, setImages] = useState([]);
-
-  useEffect(() => {
-    console.log("useEffect called");
-    const handleMouseMove = (e) => {
-      setMousePosition({ x: e.clientX, y: e.clientY });
-    };
-
-    window.addEventListener('mousemove', handleMouseMove);
-
-    return () => {
-      window.removeEventListener('mousemove', handleMouseMove);
-    };
-  }, []);
 
   useEffect(() => {
     if (!imagesGenerated) {
@@ -46,8 +33,6 @@ const BannerParallax = () => {
       setImagesGenerated(true);
     }
   }, []);
-
-  console.log("Number of images generated:", images.length);
 
   return (
     <>
@@ -66,14 +51,13 @@ const BannerParallax = () => {
           default:
             break;
         }
-        const mouseX = mousePosition.x;
-        const mouseY = mousePosition.y;
+
         const bannerWidth = window.innerWidth;
         const bannerHeight = window.innerHeight;
         const sensitivity = 450;
 
-        const deltaX = (bannerWidth / 2 - mouseX) / sensitivity;
-        const deltaY = (bannerHeight / 2 - mouseY) / sensitivity;
+        const deltaX = (bannerWidth / 2 - mousePosition.x) / sensitivity;
+        const deltaY = (bannerHeight / 2 - mousePosition.y) / sensitivity;
 
         return (
           <ParallaxImage

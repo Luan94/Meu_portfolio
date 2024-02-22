@@ -1,44 +1,74 @@
 import React from 'react';
-import styled from 'styled-components';
+import styled, { keyframes } from 'styled-components';
 import tw from 'twin.macro';
 import ImageSrc from '../../../assets/images/AboutMe/AboutMe.png';
+import { useInView } from 'react-intersection-observer';
+
+const fadeIn = keyframes`
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+`;
 
 const AboutMeSection = styled.section`
   ${tw`flex flex-wrap items-center py-5`}
-  background-color: #151515;
+  background-color: #010101;
 `;
 
 const LeftColumn = styled.div`
   ${tw`w-full md:w-1/2 md:pr-8 flex justify-center p-12`}
+  opacity: ${({ isVisible }) => (isVisible ? 1 : 0)};
+  animation: ${({ isVisible }) => (isVisible ? fadeIn : 'none')} 1s ease-in-out;
 `;
 
 const RightColumn = styled.div`
-  ${tw`w-full md:w-1/2 flex justify-center text-white md:text-center p-6`} /* Adicionando texto centralizado em dispositivos móveis */
+  ${tw`w-full md:w-1/2 flex justify-start text-white md:text-center p-6`}
+  opacity: ${({ isVisible }) => (isVisible ? 1 : 0)};
+  animation: ${({ isVisible }) => (isVisible ? fadeIn : 'none')} 1s ease-in-out;
 `;
 
 const StyledImage = styled.img`
-  ${tw`rounded-3xl md:rounded-br-[15%] md:rounded-bl-[7%] md:rounded-t-[17%] md:rounded-br-[30%] w-2/4`}
-  object-fit: cover; /* Manter a proporção e cortar a imagem */
-  
+  ${tw`rounded-3xl md:rounded-br-[10%] md:rounded-bl-[10%] md:rounded-t-[10%] md:rounded-br-[30%]`}
+  object-fit: cover;
+  max-width: 100%;
 `;
 
-const Text = styled.p`
+const Text = styled.div`
   ${tw`text-lg text-white text-left`}
-  text-align: center; /* Centralizando o texto em dispositivos móveis */
+  text-align: left;
+  line-height: 1.6;
+  max-width: 600px;
+  margin-left: 0; 
 `;
 
 const AboutMe = () => {
+  const [leftColumnRef, leftColumnInView] = useInView({
+    triggerOnce: true,
+    threshold: 0.5,
+  });
+
+  const [rightColumnRef, rightColumnInView] = useInView({
+    triggerOnce: true,
+    threshold: 0.5,
+  });
+
   return (
     <AboutMeSection>
-      <LeftColumn>
-        <StyledImage src={ImageSrc} alt="Your Name" />
-      </LeftColumn>
-      <RightColumn>
-        <Text>
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam fermentum tempor justo et laoreet. Vivamus eleifend bibendum nisl, eu posuere est elementum vitae. Aenean mollis nunc sit amet ex aliquet, ullamcorper iaculis velit dapibus. Cras feugiat ultrices consequat. Praesent quis sem mi. Integer sit amet ante dolor. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed blandit mauris sagittis erat eleifend tincidunt. Cras accumsan ante fringilla dui laoreet condimentum. Ut efficitur lacus eu est lacinia ultrices.
-
-          Etiam nibh est, congue et accumsan eget, placerat sed risus. Curabitur efficitur eleifend massa, ac fermentum tortor volutpat sed. Donec eget consectetur erat. Quisque vitae imperdiet augue. Ut pretium at neque vitae gravida. Nullam tincidunt dignissim sagittis. Praesent eget mattis libero. Aliquam at accumsan enim. Aliquam nec turpis sit amet odio rhoncus vulputate. Nunc a suscipit velit. Etiam non commodo arcu. In laoreet velit in neque tristique vehicula. Maecenas in dui luctus ipsum ullamcorper blandit. Duis volutpat tortor quis eros dictum, eu dictum lectus blandit.
+      <LeftColumn ref={leftColumnRef} isVisible={leftColumnInView}>
+      <Text>
+          Como um entusiasta da tecnologia desde a infância, sempre mantive uma paixão ardente pela área. Buscar uma carreira na indústria tecnológica, especialmente no desenvolvimento de sistemas, sempre foi meu maior objetivo.
+          <br/><br/>
+          Atualmente, estou empenhado em aprimorar e aprofundar meus conhecimentos em Laravel e ReactJS. Além disso, estou explorando plataformas low-code para o desenvolvimento de sistemas, buscando ampliar minha expertise. Dedico-me constantemente ao estudo e à prática, com o objetivo de alcançar minhas metas profissionais.
+          <br/><br/>
+          Encaro a jornada do aprendizado como um desafio estimulante e gratificante. Encontrar soluções inovadoras e aplicar meus conhecimentos para superar obstáculos é o que me motiva diariamente. Estou genuinamente comprometido em exercer minha profissão com paixão e excelência.
         </Text>
+        
+      </LeftColumn>
+      <RightColumn ref={rightColumnRef} isVisible={rightColumnInView}>
+      <StyledImage src={ImageSrc} alt="Your Name" />
       </RightColumn>
     </AboutMeSection>
   );

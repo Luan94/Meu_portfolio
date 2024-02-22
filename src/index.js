@@ -9,6 +9,7 @@ import RecentStudies from './components/HomePage/recentstudies/recentStudies';
 import Skills from './components/HomePage/skills/skills';
 import Testemonials from './components/HomePage/testemonials/testemonials';
 import Divider from './components/common/Divider';
+import Menu from './components/common/Menu';
 
 
 
@@ -17,6 +18,7 @@ const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
     <GlobalStyles/>
+    <Menu />
     <Banner/>
     <Divider/>
     <AboutMe />

@@ -1,0 +1,24 @@
+[
+    {
+      "skill_name": "React",
+      "skill_order": 1,
+      "skill_icon": "react-icon.png",
+      "skill_description_pt": "Uma biblioteca JavaScript para criar interfaces de usuário.",
+      "skill_description_en": "A JavaScript library for building user interfaces."
+    },
+    {
+      "skill_name": "Node.js",
+      "skill_order": 2,
+      "skill_icon": "node-icon.png",
+      "skill_description_pt": "Um tempo de execução JavaScript construído no Chrome's V8 JavaScript engine.",
+      "skill_description_en": "A JavaScript runtime built on Chrome's V8 JavaScript engine."
+    },
+    {
+      "skill_name": "Express.js",
+      "skill_order": 3,
+      "skill_icon": "express-icon.png",
+      "skill_description_pt": "Estrutura web rápida, sem opinião e minimalista para Node.js.",
+      "skill_description_en": "Fast, unopinionated, minimalist web framework for Node.js."
+    }
+  ]
+  

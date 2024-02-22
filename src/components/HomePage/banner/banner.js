@@ -2,11 +2,11 @@ import React, { useState, useEffect } from 'react';
 import styled from 'styled-components';
 import BannerBackground from './banner-background';
 import BannerParallax from './banner-parallax';
-import BannerTitle from './bannet-title';
+import BannerTitle from './banner-title';
 
 const BannerContainer = styled.div`
   position: relative;
-  height: 100vh;
+  height: 110vh;
   overflow: hidden;
   display: flex;
   flex-direction: column;

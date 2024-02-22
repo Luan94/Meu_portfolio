@@ -1,62 +1,28 @@
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState, useEffect } from 'react';
+import stacksData from '../../data/skills.json'; // Importando o arquivo JSON
 
-const AboutMe = () => {
-  const textos = [
-    "Este é o primeiro texto.",
-    "Aqui está o segundo texto.",
-    "E finalmente, o terceiro texto."
-  ];
-
-  const [index, setIndex] = useState(0);
-  const [displayText, setDisplayText] = useState('');
-  const [isDeleting, setIsDeleting] = useState(false);
-  const [typingSpeed, setTypingSpeed] = useState(900); // Velocidade de digitação em ms por caractere
-  const [deletingSpeed, setDeletingSpeed] = useState(900); // Velocidade de exclusão em ms por caractere
-  const requestRef = useRef();
+const StacksSection = () => {
+  const [stacks, setStacks] = useState([]);
 
   useEffect(() => {
-    const typeWriter = (timestamp) => {
-      const textoAtual = textos[index];
-      let newText = displayText;
-
-      if (isDeleting) {
-        if (displayText.length > 0) {
-          newText = newText.slice(0, -1);
-          requestRef.current = requestAnimationFrame(typeWriter);
-        } else {
-          setIsDeleting(false);
-          setIndex((prevIndex) => (prevIndex + 1) % textos.length);
-          setTimeout(() => {
-            requestRef.current = requestAnimationFrame(typeWriter);
-          }, 1000); // Tempo de espera após a exclusão antes de iniciar a próxima digitação
-        }
-      } else {
-        if (displayText.length < textoAtual.length) {
-          newText = textoAtual.substring(0, displayText.length + 1);
-          requestRef.current = requestAnimationFrame(typeWriter);
-        } else {
-          setIsDeleting(true);
-          setTimeout(() => {
-            requestRef.current = requestAnimationFrame(typeWriter);
-          }, 1000); // Tempo de espera após a digitação antes de iniciar a exclusão
-        }
-      }
-
-      setDisplayText(newText);
-    };
-
-    // Iniciando a animação
-    requestRef.current = requestAnimationFrame(typeWriter);
-
-    return () => cancelAnimationFrame(requestRef.current);
-  }, [index, displayText, isDeleting, textos]);
+    setStacks(stacksData); // Definindo o estado com os dados do JSON importado
+  }, []);
 
   return (
-    <div className="about-me">
-      <h2>Skills</h2>
-      
+    <div>
+      <h2>Stacks</h2>
+      <ul>
+        {stacks.map((stack, index) => (
+          <li key={index}>
+            <h3>{stack.skill_name}</h3>
+            <img src={stack.skill_icon} alt={stack.skill_name} />
+            <p>{stack.skill_description_en}</p>
+            {/* You can add logic to display description based on language preference */}
+          </li>
+        ))}
+      </ul>
     </div>
   );
 };
 
-export default AboutMe;
+export default StacksSection;
