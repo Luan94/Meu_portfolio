@@ -23,9 +23,9 @@ root.render(
     <Divider/>
     <AboutMe />
     <Experience />
-    <RecentStudies />
+    {/* <RecentStudies />
     <Skills />
-    <Testemonials/>
+    <Testemonials/> */}
   </React.StrictMode>
 );
 

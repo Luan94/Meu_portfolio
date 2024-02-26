@@ -17,7 +17,6 @@ const StacksSection = () => {
             <h3>{stack.skill_name}</h3>
             <img src={stack.skill_icon} alt={stack.skill_name} />
             <p>{stack.skill_description_en}</p>
-            {/* You can add logic to display description based on language preference */}
           </li>
         ))}
       </ul>

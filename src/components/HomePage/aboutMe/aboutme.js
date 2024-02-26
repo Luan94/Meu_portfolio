@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useRef } from 'react';
 import styled, { keyframes } from 'styled-components';
 import tw from 'twin.macro';
 import ImageSrc from '../../../assets/images/AboutMe/AboutMe.png';
@@ -50,24 +50,26 @@ const AboutMe = () => {
   });
 
   return (
-    <AboutMeSection>
-      <Column ref={leftColumnRef}>
-        <FadeInAnimation style={{ opacity: leftColumnInView ? 1 : 0 }}>
-          <Text>
-            Como um entusiasta da tecnologia desde a infância, sempre mantive uma paixão ardente pela área. Buscar uma carreira na indústria tecnológica, especialmente no desenvolvimento de sistemas, sempre foi meu maior objetivo.
-            <br/><br/>
-            Atualmente, estou empenhado em aprimorar e aprofundar meus conhecimentos em Laravel e ReactJS. Além disso, estou explorando plataformas low-code para o desenvolvimento de sistemas, buscando ampliar minha expertise. Dedico-me constantemente ao estudo e à prática, com o objetivo de alcançar minhas metas profissionais.
-            <br/><br/>
-            Encaro a jornada do aprendizado como um desafio estimulante e gratificante. Encontrar soluções inovadoras e aplicar meus conhecimentos para superar obstáculos é o que me motiva diariamente. Estou genuinamente comprometido em exercer minha profissão com paixão e excelência.
-          </Text>
-        </FadeInAnimation>
-      </Column>
-      <Column ref={rightColumnRef}>
-        <FadeInAnimation style={{ opacity: rightColumnInView ? 1 : 0 }}>
-          <Image src={ImageSrc} alt="Your Name" />
-        </FadeInAnimation>
-      </Column>
-    </AboutMeSection>
+    <div id="about-me">
+      <AboutMeSection>
+        <Column ref={leftColumnRef}>
+          <FadeInAnimation style={{ opacity: leftColumnInView ? 1 : 0 }}>
+            <Text>
+              Como um entusiasta da tecnologia desde a infância, sempre mantive uma paixão ardente pela área. Buscar uma carreira na indústria tecnológica, especialmente no desenvolvimento de sistemas, sempre foi meu maior objetivo.
+              <br/><br/>
+              Atualmente, estou empenhado em aprimorar e aprofundar meus conhecimentos em Laravel e ReactJS. Além disso, estou explorando plataformas low-code para o desenvolvimento de sistemas, buscando ampliar minha expertise. Dedico-me constantemente ao estudo e à prática, com o objetivo de alcançar minhas metas profissionais.
+              <br/><br/>
+              Encaro a jornada do aprendizado como um desafio estimulante e gratificante. Encontrar soluções inovadoras e aplicar meus conhecimentos para superar obstáculos é o que me motiva diariamente. Estou genuinamente comprometido em exercer minha profissão com paixão e excelência.
+            </Text>
+          </FadeInAnimation>
+        </Column>
+        <Column ref={rightColumnRef}>
+          <FadeInAnimation style={{ opacity: rightColumnInView ? 1 : 0 }}>
+            <Image src={ImageSrc} alt="Your Name" />
+          </FadeInAnimation>
+        </Column>
+      </AboutMeSection>
+    </div>
   );
 };
 

@@ -7,8 +7,9 @@ const MenuWrapper = styled.div`
   left: 0;
   right: 0;
   transition: top 0.3s;
-  background-color: white;
+  background-color: black; /* Alterado para preto */
   z-index: 999;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2); /* Sombreamento */
 
   &.hidden {
     top: -100%;
@@ -20,11 +21,11 @@ const MenuContainer = styled.nav`
   justify-content: space-between;
   align-items: center;
   padding: 1rem;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 -2px 4px rgba(255, 255, 255, 0.1); /* Sombreamento invertido */
 `;
 
 const MenuItem = styled.a`
-  color: #333;
+  color: white;
   font-weight: 600;
   text-decoration: none;
   margin-right: 1.5rem;
@@ -60,7 +61,7 @@ const Menu = () => {
         <Logo src="/logo.png" alt="Logo" />
         <div>
           <MenuItem href="#">Home</MenuItem>
-          <MenuItem href="#">About</MenuItem>
+          <MenuItem href="#about-me">About</MenuItem>
           <MenuItem href="#">Services</MenuItem>
           <MenuItem href="#">Contact</MenuItem>
         </div>

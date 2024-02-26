@@ -4,16 +4,22 @@ import CircleImage from '../../../assets/images/banner/circle.png';
 import SemiCircleImage from '../../../assets/images/banner/semi-circle.png';
 import DotsImage from '../../../assets/images/banner/dots.png';
 
-const ParallaxImage = styled.img`
-  position: absolute;
-  top: ${({ top }) => `${top}%`};
-  left: ${({ left }) => `${left}%`};
-  transform: translate(-50%, -50%);
-  filter: grayscale(100%);
-  opacity: 0.5;
-  transition: transform 0.3s ease-in-out;
-  width:120px;
+const ParallaxImage = styled.img.attrs(({ top, left }) => ({
+  style: {
+    position: 'absolute',
+    top: `${top}%`,
+    left: `${left}%`,
+    transform: 'translate(-50%, -50%)',
+    filter: 'grayscale(100%)',
+    opacity: 0.5,
+    transition: 'transform 0.3s ease-in-out',
+    width: '120px',
+  },
+}))`
+  ${props => props.$top && `top: ${props.$top}%`};
+  ${props => props.$left && `left: ${props.$left}%`};
 `;
+
 
 const generateImages = () => {
   return Array.from({ length: 10 }).map(() => ({
@@ -28,7 +34,6 @@ const BannerParallax = ({ mousePosition }) => {
 
   useEffect(() => {
     if (!imagesGenerated) {
-      console.log("Generating images...");
       setImages(generateImages());
       setImagesGenerated(true);
     }
@@ -61,11 +66,11 @@ const BannerParallax = ({ mousePosition }) => {
 
         return (
           <ParallaxImage
-            key={index}
-            src={imageSrc}
-            top={position.top + deltaY}
-            left={position.left + deltaX}
-          />
+  key={index}
+  src={imageSrc}
+  $top={position.top + deltaY}
+  $left={position.left + deltaX}
+/>
         );
       })}
     </>
