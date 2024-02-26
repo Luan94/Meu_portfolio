@@ -45,4 +45,5 @@ const Banner = () => {
   );
 };
 
+console.log('Banner Wrapper')
 export default Banner;
