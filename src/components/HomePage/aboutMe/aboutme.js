@@ -19,7 +19,7 @@ const FadeInAnimation = styled.div`
 `;
 
 const AboutMeSection = styled.section`
-  ${tw`flex flex-wrap items-center py-5 bg-black text-white`}
+  ${tw`flex flex-wrap items-center py-5 text-white`}
 `;
 
 const Column = styled.div`

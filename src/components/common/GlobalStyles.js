@@ -16,6 +16,7 @@ html {
   body {
     font-family: 'Roboto', sans-serif; /* Definindo Roboto como a fonte do corpo */
     margin: 0;
+    background-color: black;
   }
 
   h1, h2, h3, h4, h5, h6 {

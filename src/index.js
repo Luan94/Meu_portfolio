@@ -22,10 +22,11 @@ root.render(
     <Banner/>
     <Divider/>
     <AboutMe />
-    <Experience />
-    {/* <RecentStudies />
     <Skills />
-    <Testemonials/> */}
+    <Experience />
+    <RecentStudies />
+  
+    <Testemonials/>
   </React.StrictMode>
 );
 
