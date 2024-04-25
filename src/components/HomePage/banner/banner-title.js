@@ -2,10 +2,11 @@ import React from 'react';
 import styled from 'styled-components';
 import tw from 'twin.macro';
 import TypewriterHook from '../../../hooks/TypeWriter';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faGithub, faLinkedin, faWhatsapp } from '@fortawesome/free-brands-svg-icons';
 
 const TextContainer = styled.div`
-  ${tw`absolute text-left z-10 text-white`}
-  left: 10%;
+  ${tw`text-left z-20 text-white`}
 `;
 
 const Title = styled.h1`
@@ -18,13 +19,35 @@ const TypewriterText = styled.span`
   color: #eee;
 `;
 
+const SocialContainer = styled.div`
+  ${tw`mt-4`}
+`;
+
+const SocialButton = styled.a`
+  ${tw`mr-4`}
+  color: white;
+  transition: color 0.3s ease;
+
+  &:hover {
+    color: #333;
+  }
+`;
+
 const BannerTitle = () => {
   return (
-    <TextContainer>
+    <TextContainer className='esse'>
       <Title>Luan Vilas Boas</Title>
       <TypewriterText>
-        <TypewriterHook text="Fullstack Web Developer" delay={100} />
+        <TypewriterHook text="Jr Fullstack Web Developer" delay={100} />
       </TypewriterText>
+      <SocialContainer>
+        <SocialButton href="https://github.com/seu-usuario-do-github">
+          <FontAwesomeIcon icon={faGithub} size="2x" />
+        </SocialButton>
+        <SocialButton href="https://www.linkedin.com/in/seu-perfil-do-linkedin">
+          <FontAwesomeIcon icon={faLinkedin} size="2x" />
+        </SocialButton>
+      </SocialContainer>
     </TextContainer>
   );
 };

@@ -4,7 +4,6 @@ import reportWebVitals from './reportWebVitals';
 import GlobalStyles from './components/common/GlobalStyles';
 import Banner from './components/HomePage/banner/banner';
 import AboutMe from './components/HomePage/aboutMe/aboutme';
-import Experience from './components/HomePage/experience/experience';
 import RecentStudies from './components/HomePage/recentstudies/recentStudies';
 import Skills from './components/HomePage/skills/skills';
 import Testemonials from './components/HomePage/testemonials/testemonials';
@@ -23,9 +22,7 @@ root.render(
     <Divider/>
     <AboutMe />
     <Skills />
-    <Experience />
-    <RecentStudies />
-  
+    <RecentStudies />  
     <Testemonials/>
   </React.StrictMode>
 );

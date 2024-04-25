@@ -2,7 +2,9 @@ import React, { useState, useEffect } from 'react';
 import styled from 'styled-components';
 import tw from 'twin.macro';
 import stacksData from '../../data/skills.json';
-import InfoModal from '../../common/InfoModal'; // Alteração aqui
+import InfoModal from '../../common/InfoModal';
+
+
 
 const StacksContainer = styled.div`
   ${tw`p-4 bg-black rounded-lg shadow-md`}
@@ -37,6 +39,11 @@ const StackItem = styled.div`
   }
 `;
 
+const StackImg = styled.img`
+${tw`max-w-16 m-4`}
+ 
+`;
+
 const StacksSection = () => {
   const [stacks, setStacks] = useState([]);
   const [selectedStack, setSelectedStack] = useState(null);
@@ -68,6 +75,8 @@ const StacksSection = () => {
 
   return (
     <div>
+  
+
       <StacksTitle>Minhas Stacks</StacksTitle>
       <StacksContainer>
         {Object.entries(groupedStacks).map(([category, stacks]) => (
@@ -76,7 +85,7 @@ const StacksSection = () => {
             <StackItemsContainer>
               {stacks.map((stack, index) => (
                 <StackItem key={index} onClick={() => handleStackItemClick(stack)}>            
-                  <img src={stack.skill_icon} alt={stack.skill_name} />
+                  <StackImg src={stack.skill_icon} alt={stack.skill_name} />
                   <h3>{stack.skill_name}</h3>
                 </StackItem>
               ))}

@@ -65,7 +65,7 @@ const AboutMe = () => {
         </Column>
         <Column ref={rightColumnRef}>
           <FadeInAnimation style={{ opacity: rightColumnInView ? 1 : 0 }}>
-            <Image src={ImageSrc} alt="Your Name" />
+            
           </FadeInAnimation>
         </Column>
       </AboutMeSection>
