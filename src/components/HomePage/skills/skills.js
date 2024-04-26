@@ -18,7 +18,7 @@ const CategoryContainer = styled.div`
 
 
 const StacksTitle = styled.h3`
-  ${tw`text-white text-center mb-4 mt-4`}
+  ${tw`text-white text-center mb-2 mt-2`}
 `;
 
 const CategoryTitle = styled.h4`
@@ -26,13 +26,13 @@ const CategoryTitle = styled.h4`
 `;
 
 const StackItemsContainer = styled.div`
-${tw`flex flex-wrap justify-center gap-4`}
+${tw`flex flex-wrap justify-center gap-3`}
 `;
 
 const StackItem = styled.div`
-  ${tw`flex flex-col items-center justify-center text-center text-white bg-black rounded-lg p-4 cursor-pointer transition-colors`}
+  ${tw`flex flex-col items-center justify-center text-center text-white bg-neutral-950 rounded-lg p-4 cursor-pointer transition-colors`}
   width: calc(20% - 2rem);
-  box-shadow: 0 2px 4px rgba(255, 255, 255, 0.1);
+  
 
   &:hover {
     background-color: rgba(255, 255, 255, 0.1);
@@ -40,7 +40,7 @@ const StackItem = styled.div`
 `;
 
 const StackImg = styled.img`
-${tw`max-w-16 m-4`}
+${tw`max-w-8 m-3`}
  
 `;
 

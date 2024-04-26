@@ -7,7 +7,7 @@ import ImageSrc from '../../../assets/images/AboutMe/profile-photo.png';
   
 
 const Image = styled.img`
-  ${tw`rounded-full w-3/5`}
+  ${tw`rounded-full w-1/2`}
   object-fit: cover;
   max-width: 100%;
   background:transparent;
@@ -19,9 +19,6 @@ const Image = styled.img`
 const ColumnPhoto = styled.div`
   ${tw`w-full`}
 `;
-
-
-
 
 
 const BannerPhoto = () => {

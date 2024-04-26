@@ -1,0 +1,12 @@
+{
+
+  "about_me_title":{
+    "portugues": "Sobre mim",
+    "ingles": "About me"
+  },
+  "about_me_content": {
+    "portugues": "Sou um profissional dedicado e apaixonado por desenvolvimento web. Tenho experiência em diversas tecnologias, como HTML, CSS, JavaScript, e estou sempre buscando aprender mais. Meu foco principal é criar experiências digitais incríveis e funcionais que atendam às necessidades dos usuários.",
+    "ingles": "I'm a dedicated professional passionate about web development. I have experience in various technologies like HTML, CSS, JavaScript, and I'm always eager to learn more. My main focus is on creating amazing and functional digital experiences that meet user needs."
+  }
+
+}

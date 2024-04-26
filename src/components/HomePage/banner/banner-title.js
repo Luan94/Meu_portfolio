@@ -41,10 +41,10 @@ const BannerTitle = () => {
         <TypewriterHook text="Jr Fullstack Web Developer" delay={100} />
       </TypewriterText>
       <SocialContainer>
-        <SocialButton href="https://github.com/seu-usuario-do-github">
+        <SocialButton href="https://github.com/Luan94" target="_blank">
           <FontAwesomeIcon icon={faGithub} size="2x" />
         </SocialButton>
-        <SocialButton href="https://www.linkedin.com/in/seu-perfil-do-linkedin">
+        <SocialButton href="https://www.linkedin.com/in/luanvilasboas-desenvolvedor/" target="_blank">
           <FontAwesomeIcon icon={faLinkedin} size="2x" />
         </SocialButton>
       </SocialContainer>

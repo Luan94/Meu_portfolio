@@ -66,7 +66,7 @@
   {
     "skill_name": "jQuery",
     "skill_order": 9,
-    "skill_icon": "https://cdn.svgporn.com/logos/jquery.svg",
+    "skill_icon": "https://cdn.icon-icons.com/icons2/2415/PNG/512/jquery_plain_wordmark_logo_icon_146445.png",
     "skill_description_pt": "Uma biblioteca de JavaScript rápida, pequena e rica em recursos, frequentemente usada para simplificar tarefas comuns de JavaScript em páginas web.",
     "skill_description_en": "A fast, small, and feature-rich JavaScript library, often used to simplify common JavaScript tasks on web pages.",
     "category": "Front-end"
@@ -109,22 +109,22 @@
     "skill_icon": "https://cdn.svgporn.com/logos/wordpress-icon.svg",
     "skill_description_pt": "Um sistema de gerenciamento de conteúdo de código aberto baseado em PHP e MySQL, frequentemente usado para criar websites e blogs.",
     "skill_description_en": "An open-source content management system based on PHP and MySQL, often used to create websites and blogs.",
-    "category": "Plataformas de Desenvolvimento"
+    "category": "Outras Plataformas de Desenvolvimento"
   },
   {
     "skill_name": "Moodle",
     "skill_order": 2,
-    "skill_icon": "https://moodle.org/theme/moodleorg/pix/moodle_logo_TM.svg",
+    "skill_icon": "https://cdn.icon-icons.com/icons2/2415/PNG/512/moodle_original_logo_icon_146420.png",
     "skill_description_pt": "Um sistema de gerenciamento de aprendizado de código aberto para criar e gerenciar cursos on-line.",
     "skill_description_en": "An open-source learning management system for creating and managing online courses.",
-    "category": "Plataformas de Desenvolvimento"
+    "category": "Outras Plataformas de Desenvolvimento"
   },
   {
     "skill_name": "Outsystems",
     "skill_order": 3,
-    "skill_icon": "https://www.outsystems.com/-/media/themes/outsystems/website/site-theme/imgs/logo.svg?updated=20211217193441",
+    "skill_icon": "https://www.nuget.org/profiles/OutSystems/avatar?imageSize=512",
     "skill_description_pt": "Uma plataforma de desenvolvimento de aplicativos de baixo código para criar, implantar e gerenciar aplicativos empresariais rapidamente.",
     "skill_description_en": "A low-code application development platform to create, deploy, and manage enterprise applications quickly.",
-    "category": "Plataformas de Desenvolvimento"
+    "category": "Outras Plataformas de Desenvolvimento"
   }
 ]

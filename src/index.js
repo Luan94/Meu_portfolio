@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import ReactDOM from 'react-dom/client';
 import reportWebVitals from './reportWebVitals';
 import GlobalStyles from './components/common/GlobalStyles';
@@ -10,24 +10,40 @@ import Testemonials from './components/HomePage/testemonials/testemonials';
 import Divider from './components/common/Divider';
 import Menu from './components/common/Menu';
 
+const App = () => {
+  
+  const getLanguageFromStorage = () => {
+    const storedLanguage = localStorage.getItem('language');
+    return storedLanguage ? storedLanguage : 'portugues';
+  };
 
+  const [language, setLanguage] = useState(getLanguageFromStorage()); 
 
+  
+  const changeLanguage = (lang) => {
+    setLanguage(lang);
+    localStorage.setItem('language', lang);
+  };
+
+  return (
+    <div>
+      <GlobalStyles/>
+      <Menu changeLanguage={changeLanguage} />
+      <Banner/>
+      <Divider/>
+      <AboutMe language={language} />
+      <Skills />
+      <RecentStudies />  
+      <Testemonials/>
+    </div>
+  );
+};
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-    <GlobalStyles/>
-    <Menu />
-    <Banner/>
-    <Divider/>
-    <AboutMe />
-    <Skills />
-    <RecentStudies />  
-    <Testemonials/>
+    <App />
   </React.StrictMode>
 );
 
-// If you want to start measuring performance in your app, pass a function
-// to log results (for example: reportWebVitals(console.log))
-// or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
 reportWebVitals();

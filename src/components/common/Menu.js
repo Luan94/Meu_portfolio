@@ -7,9 +7,9 @@ const MenuWrapper = styled.div`
   left: 0;
   right: 0;
   transition: top 0.3s;
-  background-color: black; /* Alterado para preto */
+  background-color: black;
   z-index: 999;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2); /* Sombreamento */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
 
   &.hidden {
     top: -100%;
@@ -21,18 +21,18 @@ const MenuContainer = styled.nav`
   justify-content: space-between;
   align-items: center;
   padding: 1rem;
-  box-shadow: 0 -2px 4px rgba(255, 255, 255, 0.1); /* Sombreamento invertido */
+  box-shadow: 0 -2px 4px rgba(255, 255, 255, 0.1);
 `;
 
 const MenuItem = styled.a`
-  color: white;
+  color: ${({ active }) => (active ? "red" : "white")};
   font-weight: 600;
   text-decoration: none;
   margin-right: 1.5rem;
   transition: color 0.3s;
 
   &:hover {
-    color: #555;
+    color: ${({ active }) => (active ? "red" : "#555")};
   }
 `;
 
@@ -40,9 +40,10 @@ const Logo = styled.img`
   max-width: 150px;
 `;
 
-const Menu = () => {
+const Menu = ({ changeLanguage }) => {
   const [prevScrollPos, setPrevScrollPos] = useState(0);
   const [isVisible, setIsVisible] = useState(true);
+  const [language, setLanguage] = useState("portugues");
 
   useEffect(() => {
     function handleScroll() {
@@ -55,11 +56,22 @@ const Menu = () => {
     return () => window.removeEventListener("scroll", handleScroll);
   }, [prevScrollPos, isVisible]);
 
+  const handleLanguageChange = (lang) => {
+    setLanguage(lang);
+    changeLanguage(lang);
+  };
+
   return (
     <MenuWrapper className={!isVisible ? "hidden" : ""}>
       <MenuContainer>
         <Logo src="/logo.png" alt="Logo" />
         <div>
+          <MenuItem href="#" active={language === "portugues"} onClick={() => handleLanguageChange("portugues")}>
+            Português
+          </MenuItem>
+          <MenuItem href="#" active={language === "ingles"} onClick={() => handleLanguageChange("ingles")}>
+            Inglês
+          </MenuItem>
           <MenuItem href="#">Home</MenuItem>
           <MenuItem href="#about-me">About</MenuItem>
           <MenuItem href="#">Services</MenuItem>
