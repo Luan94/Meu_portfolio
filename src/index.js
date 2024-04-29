@@ -29,7 +29,7 @@ const App = () => {
     <div>
       <GlobalStyles/>
       <Menu changeLanguage={changeLanguage} />
-      <Banner/>
+      <Banner language={language} />
       <Divider/>
       <AboutMe language={language} />
       <Skills />

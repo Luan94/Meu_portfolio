@@ -24,14 +24,14 @@ const RightColumn = styled.div`
   }
 `;
 
-const TwoColumnComponent = () => {
+const TwoColumnComponent = ({ language }) => {
   return (
     <Container>
       <LeftColumn>
         <BannerTitle/>
       </LeftColumn>
       <RightColumn>
-        <BannerPhoto/>
+        <BannerPhoto language={language}/>
       </RightColumn>
     </Container>
   );

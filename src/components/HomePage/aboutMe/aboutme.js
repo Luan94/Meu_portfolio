@@ -1,6 +1,9 @@
+// AboutMe.js
+
 import React from 'react';
 import styled, { keyframes } from 'styled-components';
 import tw from 'twin.macro';
+import translationUtils from '../../../hooks/translationUtils';
 import aboutme from '../../data/aboutme.json';
 
 const fadeIn = keyframes`
@@ -32,23 +35,14 @@ const Text = styled.div`
 `;
 
 const AboutMe = ({ language }) => {
-  const getTextForLanguage = (key) => {
-    if (aboutme && aboutme[key]) {
-      console.log(aboutme[key][language]);
-      return aboutme[key][language] || 'Texto não encontrado';
-    } else {
-      return 'Dados não disponíveis';
-    }
-  };
-
   return (
     <div id="about-me">
       <AboutMeSection>
         <Column>
           <FadeInAnimation>
             <Text>
-              <h3>{getTextForLanguage('about_me_title')}</h3>
-              {getTextForLanguage('about_me_content')}
+              <h3>{translationUtils('about_me_title', language, aboutme)}</h3>
+              {translationUtils('about_me_content', language, aboutme)}
             </Text>
           </FadeInAnimation>
         </Column>

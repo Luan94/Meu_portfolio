@@ -14,10 +14,11 @@ const BannerContainer = styled.div`
   align-items: center;
 `;
 
-const Banner = () => {
+const Banner = ({ language }) => {
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
   const [imagesGenerated, setImagesGenerated] = useState(false);
-
+  
+  
   useEffect(() => {
     const handleMouseMove = (e) => {
       setMousePosition({ x: e.clientX, y: e.clientY });
@@ -39,7 +40,7 @@ const Banner = () => {
   return (
     <BannerContainer>
       <BannerBackground/>
-      <TwoColumnComponent/>
+      <TwoColumnComponent language={language}/>
       <BannerParallax mousePosition={mousePosition} />
     </BannerContainer>
   );
