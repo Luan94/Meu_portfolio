@@ -21,11 +21,11 @@ const FadeInAnimation = styled.div`
 `;
 
 const AboutMeSection = styled.section`
-  ${tw`flex flex-wrap items-center py-5 text-white`}
+  ${tw`text-white container mx-auto`}
 `;
 
 const Column = styled.div`
-  ${tw`w-full md:w-1/2 flex justify-center p-12`}
+  ${tw`w-full`}
 `;
 
 const Text = styled.div`
@@ -36,8 +36,8 @@ const Text = styled.div`
 
 const AboutMe = ({ language }) => {
   return (
-    <div id="about-me">
-      <AboutMeSection>
+    
+      <AboutMeSection id="about-me">
         <Column>
           <FadeInAnimation>
             <Text>
@@ -47,7 +47,7 @@ const AboutMe = ({ language }) => {
           </FadeInAnimation>
         </Column>
       </AboutMeSection>
-    </div>
+   
   );
 };
 

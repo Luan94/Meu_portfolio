@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import styled from 'styled-components';
 import BannerBackground from './banner-background';
 import BannerParallax from './banner-parallax';
-import TwoColumnComponent from './banner-text-photo-container';
+import BannerTitlePhotoWrapper from './banner-text-photo-container';
 
 const BannerContainer = styled.div`
   position: relative;
@@ -38,10 +38,10 @@ const Banner = ({ language }) => {
   }, [imagesGenerated]);
 
   return (
-    <BannerContainer>
+    <BannerContainer id="banner-wrapper">
       <BannerBackground/>
-      <TwoColumnComponent language={language}/>
       <BannerParallax mousePosition={mousePosition} />
+      <BannerTitlePhotoWrapper language={language}/>      
     </BannerContainer>
   );
 };

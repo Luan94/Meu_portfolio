@@ -1,7 +1,9 @@
 import React, { useState, useEffect } from "react";
 import styled from "styled-components";
+import tw from 'twin.macro';
 
 const MenuWrapper = styled.div`
+
   position: fixed;
   top: 0;
   left: 0;
@@ -17,6 +19,7 @@ const MenuWrapper = styled.div`
 `;
 
 const MenuContainer = styled.nav`
+${tw`container mx-auto`}
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -25,14 +28,14 @@ const MenuContainer = styled.nav`
 `;
 
 const MenuItem = styled.a`
-  color: ${({ active }) => (active ? "red" : "white")};
+  color: white;
   font-weight: 600;
   text-decoration: none;
   margin-right: 1.5rem;
   transition: color 0.3s;
 
   &:hover {
-    color: ${({ active }) => (active ? "red" : "#555")};
+    color: red;
   }
 `;
 
@@ -66,10 +69,10 @@ const Menu = ({ changeLanguage }) => {
       <MenuContainer>
         <Logo src="/logo.png" alt="Logo" />
         <div>
-          <MenuItem href="#" active={language === "portugues"} onClick={() => handleLanguageChange("portugues")}>
+          <MenuItem href="#"  onClick={() => handleLanguageChange("portugues")}>
             Português
           </MenuItem>
-          <MenuItem href="#" active={language === "ingles"} onClick={() => handleLanguageChange("ingles")}>
+          <MenuItem href="#" onClick={() => handleLanguageChange("ingles")}>
             Inglês
           </MenuItem>
           <MenuItem href="#">Home</MenuItem>

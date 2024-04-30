@@ -6,6 +6,10 @@ html {
   scroll-behavior: smooth;
 }
 
+// Debug
+// *{
+//   outline: 1px dotted red !important;
+// }
 
   * {
     margin: 0;

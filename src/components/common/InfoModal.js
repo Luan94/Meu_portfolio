@@ -1,5 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
+import tw from 'twin.macro';
 
 const ModalBackdrop = styled.div`
   position: fixed;
@@ -14,6 +15,7 @@ const ModalBackdrop = styled.div`
 `;
 
 const ModalContent = styled.div`
+${tw`z-50`}
   background-color: #333; /* Cor de fundo cinza escuro */
   color: white;
   padding: 20px;

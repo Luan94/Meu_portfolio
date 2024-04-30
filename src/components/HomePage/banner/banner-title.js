@@ -35,7 +35,7 @@ const SocialButton = styled.a`
 
 const BannerTitle = () => {
   return (
-    <TextContainer className='esse'>
+    <TextContainer id="banner_titles">
       <Title>Luan Vilas Boas</Title>
       <TypewriterText>
         <TypewriterHook text="Jr Fullstack Web Developer" delay={100} />

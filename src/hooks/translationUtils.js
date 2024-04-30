@@ -2,10 +2,9 @@ import React from "react";
 
 const translationUtils = (key, language, data) => {
     if (data && data[key]) {
-      console.log(data[key][language]);
-      return data[key][language] || 'No text';
+      return data[key][language] || 'No text set';
     } else {
-      return 'No Data';
+      return 'No Data set';
     }
   };
 

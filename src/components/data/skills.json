@@ -1,130 +1,228 @@
-[
-  {
-    "skill_name": "React",
-    "skill_order": 1,
-    "skill_icon": "https://cdn.svgporn.com/logos/react.svg",
-    "skill_description_pt": "Uma biblioteca JavaScript para criar interfaces de usuário.",
-    "skill_description_en": "A JavaScript library for building user interfaces.",
-    "category": "Front-end"
-  },
-  {
-    "skill_name": "PHP",
-    "skill_order": 2,
-    "skill_icon": "https://cdn.svgporn.com/logos/php.svg",
-    "skill_description_pt": "Uma linguagem de script de uso geral, especialmente adequada para o desenvolvimento web.",
-    "skill_description_en": "A general-purpose scripting language, especially suited for web development.",
-    "category": "Front-end"
-  },
-  {
-    "skill_name": "Laravel Blade",
-    "skill_order": 3,
-    "skill_icon": "https://cdn.svgporn.com/logos/laravel.svg",
-    "skill_description_pt": "Um mecanismo de modelo simples e poderoso fornecido com o framework Laravel, útil para renderizar as visualizações no lado do cliente.",
-    "skill_description_en": "A simple yet powerful templating engine provided with the Laravel framework, useful for rendering views on the client side.",
-    "category": "Front-end"
-  },
-  {
-    "skill_name": "JavaScript",
-    "skill_order": 4,
-    "skill_icon": "https://cdn.svgporn.com/logos/javascript.svg",
-    "skill_description_pt": "Uma linguagem de programação de alto nível, interpretada e orientada a objetos, comumente utilizada para criar conteúdo interativo em páginas web.",
-    "skill_description_en": "A high-level, interpreted programming language that is widely used to create interactive content on web pages.",
-    "category": "Front-end"
-  },
-  {
-    "skill_name": "HTML",
-    "skill_order": 5,
-    "skill_icon": "https://cdn.svgporn.com/logos/html-5.svg",
-    "skill_description_pt": "A linguagem de marcação padrão para páginas web, usada para estruturar e apresentar conteúdo na internet.",
-    "skill_description_en": "The standard markup language for web pages, used to structure and present content on the internet.",
-    "category": "Front-end"
-  },
-  {
-    "skill_name": "CSS",
-    "skill_order": 6,
-    "skill_icon": "https://cdn.svgporn.com/logos/css-3.svg",
-    "skill_description_pt": "Uma linguagem de estilo usada para descrever a apresentação de um documento escrito em HTML.",
-    "skill_description_en": "A style sheet language used for describing the presentation of a document written in HTML.",
-    "category": "Front-end"
-  },
-  {
-    "skill_name": "Bootstrap",
-    "skill_order": 7,
-    "skill_icon": "https://cdn.svgporn.com/logos/bootstrap.svg",
-    "skill_description_pt": "Um framework front-end de código aberto e gratuito para design responsivo e desenvolvimento web.",
-    "skill_description_en": "A free and open-source front-end framework for responsive design and web development.",
-    "category": "Front-end"
-  },
-  {
-    "skill_name": "Tailwind",
-    "skill_order": 8,
-    "skill_icon": "https://cdn.svgporn.com/logos/tailwindcss-icon.svg",
-    "skill_description_pt": "Um framework de utilitários CSS de baixo nível que oferece uma abordagem diferente para construir designs.",
-    "skill_description_en": "A low-level CSS utility framework that offers a different approach to building designs.",
-    "category": "Front-end"
-  },
-  {
-    "skill_name": "jQuery",
-    "skill_order": 9,
-    "skill_icon": "https://cdn.icon-icons.com/icons2/2415/PNG/512/jquery_plain_wordmark_logo_icon_146445.png",
-    "skill_description_pt": "Uma biblioteca de JavaScript rápida, pequena e rica em recursos, frequentemente usada para simplificar tarefas comuns de JavaScript em páginas web.",
-    "skill_description_en": "A fast, small, and feature-rich JavaScript library, often used to simplify common JavaScript tasks on web pages.",
-    "category": "Front-end"
-  },
-  {
-    "skill_name": "Laravel",
-    "skill_order": 3,
-    "skill_icon": "https://cdn.svgporn.com/logos/laravel.svg",
-    "skill_description_pt": "Um framework PHP gratuito e de código aberto, destinado ao desenvolvimento de aplicativos da web seguindo o padrão MVC para o lado do servidor.",
-    "skill_description_en": "A free, open-source PHP web framework, intended for the development of web applications following the MVC pattern for server-side.",
-    "category": "Back-end"
-  },
-  {
-    "skill_name": "MySQL",
-    "skill_order": 1,
-    "skill_icon": "https://cdn.svgporn.com/logos/mysql-icon.svg",
-    "skill_description_pt": "Um sistema de gerenciamento de banco de dados relacional de código aberto e amplamente utilizado.",
-    "skill_description_en": "An open-source relational database management system widely used.",
-    "category": "Database"
-  },
-  {
-    "skill_name": "Git",
-    "skill_order": 1,
-    "skill_icon": "https://cdn.svgporn.com/logos/git-icon.svg",
-    "skill_description_pt": "Um sistema de controle de versão distribuído de código aberto e gratuito, amplamente utilizado em desenvolvimento de software.",
-    "skill_description_en": "A free and open-source distributed version control system widely used in software development.",
-    "category": "DevOps"
-  },
-  {
-    "skill_name": "Docker",
-    "skill_order": 2,
-    "skill_icon": "https://cdn.svgporn.com/logos/docker-icon.svg",
-    "skill_description_pt": "Uma plataforma de código aberto para criar, implantar e gerenciar contêineres.",
-    "skill_description_en": "An open-source platform for building, deploying, and managing containers.",
-    "category": "DevOps"
-  },
-  {
-    "skill_name": "WordPress",
-    "skill_order": 1,
-    "skill_icon": "https://cdn.svgporn.com/logos/wordpress-icon.svg",
-    "skill_description_pt": "Um sistema de gerenciamento de conteúdo de código aberto baseado em PHP e MySQL, frequentemente usado para criar websites e blogs.",
-    "skill_description_en": "An open-source content management system based on PHP and MySQL, often used to create websites and blogs.",
-    "category": "Outras Plataformas de Desenvolvimento"
-  },
-  {
-    "skill_name": "Moodle",
-    "skill_order": 2,
-    "skill_icon": "https://cdn.icon-icons.com/icons2/2415/PNG/512/moodle_original_logo_icon_146420.png",
-    "skill_description_pt": "Um sistema de gerenciamento de aprendizado de código aberto para criar e gerenciar cursos on-line.",
-    "skill_description_en": "An open-source learning management system for creating and managing online courses.",
-    "category": "Outras Plataformas de Desenvolvimento"
-  },
-  {
-    "skill_name": "Outsystems",
-    "skill_order": 3,
-    "skill_icon": "https://www.nuget.org/profiles/OutSystems/avatar?imageSize=512",
-    "skill_description_pt": "Uma plataforma de desenvolvimento de aplicativos de baixo código para criar, implantar e gerenciar aplicativos empresariais rapidamente.",
-    "skill_description_en": "A low-code application development platform to create, deploy, and manage enterprise applications quickly.",
-    "category": "Outras Plataformas de Desenvolvimento"
-  }
-]
+{
+  "skills": [
+    {
+      "skill_name": "React",
+      "skill_order": 1,
+      "skill_icon": "https://cdn.svgporn.com/logos/react.svg",
+      "skill_description": {
+        "portugues": "Uma biblioteca JavaScript para criar interfaces de usuário.",
+        "ingles": "A JavaScript library for building user interfaces."
+      },
+      "category": "Front-end",
+      "categories_language": {
+        "portugues": "Front-end",
+        "ingles": "Front-end"
+      }
+    },
+    {
+      "skill_name": "PHP",
+      "skill_order": 2,
+      "skill_icon": "https://cdn.svgporn.com/logos/php.svg",
+      "skill_description": {
+        "portugues": "Uma linguagem de script de uso geral, especialmente adequada para o desenvolvimento web.",
+        "ingles": "A general-purpose scripting language, especially suited for web development."
+      },
+      "category": "Front-end",
+      "categories_language": {
+        "portugues": "Front-end",
+        "ingles": "Front-end"
+      }
+    },
+    {
+      "skill_name": "Laravel Blade",
+      "skill_order": 3,
+      "skill_icon": "https://cdn.svgporn.com/logos/laravel.svg",
+      "skill_description": {
+        "portugues": "Um mecanismo de modelo simples e poderoso fornecido com o framework Laravel, útil para renderizar as visualizações no lado do cliente.",
+        "ingles": "A simple yet powerful templating engine provided with the Laravel framework, useful for rendering views on the client side."
+      },
+      "category": "Front-end",
+      "categories_language": {
+        "portugues": "Front-end",
+        "ingles": "Front-end"
+      }
+    },
+    {
+      "skill_name": "JavaScript",
+      "skill_order": 4,
+      "skill_icon": "https://cdn.svgporn.com/logos/javascript.svg",
+      "skill_description": {
+        "portugues": "Uma linguagem de programação de alto nível, interpretada e orientada a objetos, comumente utilizada para criar conteúdo interativo em páginas web.",
+        "ingles": "A high-level, interpreted programming language that is widely used to create interactive content on web pages."
+      },
+      "category": "Front-end",
+      "categories_language": {
+        "portugues": "Front-end",
+        "ingles": "Front-end"
+      }
+    },
+    {
+      "skill_name": "HTML",
+      "skill_order": 5,
+      "skill_icon": "https://cdn.svgporn.com/logos/html-5.svg",
+      "skill_description": {
+        "portugues": "A linguagem de marcação padrão para páginas web, usada para estruturar e apresentar conteúdo na internet.",
+        "ingles": "The standard markup language for web pages, used to structure and present content on the internet."
+      },
+      "category": "Front-end",
+      "categories_language": {
+        "portugues": "Front-end",
+        "ingles": "Front-end"
+      }
+    },
+    {
+      "skill_name": "CSS",
+      "skill_order": 6,
+      "skill_icon": "https://cdn.svgporn.com/logos/css-3.svg",
+      "skill_description": {
+        "portugues": "Uma linguagem de estilo usada para descrever a apresentação de um documento escrito em HTML.",
+        "ingles": "A style sheet language used for describing the presentation of a document written in HTML."
+      },
+      "category": "Front-end",
+      "categories_language": {
+        "portugues": "Front-end",
+        "ingles": "Front-end"
+      }
+    },
+    {
+      "skill_name": "Bootstrap",
+      "skill_order": 7,
+      "skill_icon": "https://cdn.svgporn.com/logos/bootstrap.svg",
+      "skill_description": {
+        "portugues": "Um framework front-end de código aberto e gratuito para design responsivo e desenvolvimento web.",
+        "ingles": "A free and open-source front-end framework for responsive design and web development."
+      },
+      "category": "Front-end",
+      "categories_language": {
+        "portugues": "Front-end",
+        "ingles": "Front-end"
+      }
+    },
+    {
+      "skill_name": "Tailwind",
+      "skill_order": 8,
+      "skill_icon": "https://cdn.svgporn.com/logos/tailwindcss-icon.svg",
+      "skill_description": {
+        "portugues": "Um framework de utilitários CSS de baixo nível que oferece uma abordagem diferente para construir designs.",
+        "ingles": "A low-level CSS utility framework that offers a different approach to building designs."
+      },
+      "category": "Front-end",
+      "categories_language": {
+        "portugues": "Front-end",
+        "ingles": "Front-end"
+      }
+    },
+    {
+      "skill_name": "jQuery",
+      "skill_order": 9,
+      "skill_icon": "https://cdn.icon-icons.com/icons2/2415/PNG/512/jquery_plain_wordmark_logo_icon_146445.png",
+      "skill_description": {
+        "portugues": "Uma biblioteca de JavaScript rápida, pequena e rica em recursos, frequentemente usada para simplificar tarefas comuns de JavaScript em páginas web.",
+        "ingles": "A fast, small, and feature-rich JavaScript library, often used to simplify common JavaScript tasks on web pages."
+      },
+      "category": "Front-end",
+      "categories_language": {
+        "portugues": "Front-end",
+        "ingles": "Front-end"
+      }
+    },
+    {
+      "skill_name": "Laravel",
+      "skill_order": 3,
+      "skill_icon": "https://cdn.svgporn.com/logos/laravel.svg",
+      "skill_description": {
+        "portugues": "Um framework PHP gratuito e de código aberto, destinado ao desenvolvimento de aplicativos da web seguindo o padrão MVC para o lado do servidor.",
+        "ingles": "A free, open-source PHP web framework, intended for the development of web applications following the MVC pattern for server-side."
+      },
+      "category": "Back-end",
+      "categories_language": {
+        "portugues": "Back-end",
+        "ingles": "Back-end"
+      }
+    },
+    {
+      "skill_name": "MySQL",
+      "skill_order": 1,
+      "skill_icon": "https://cdn.svgporn.com/logos/mysql-icon.svg",
+      "skill_description": {
+        "portugues": "Um sistema de gerenciamento de banco de dados relacional de código aberto e amplamente utilizado.",
+        "ingles": "An open-source relational database management system widely used."
+      },
+      "category": "Database",
+      "categories_language": {
+        "portugues": "Database",
+        "ingles": "Database"
+      }
+    },
+    {
+      "skill_name": "Git",
+      "skill_order": 1,
+      "skill_icon": "https://cdn.svgporn.com/logos/git-icon.svg",
+      "skill_description": {
+        "portugues": "Um sistema de controle de versão distribuído de código aberto e gratuito, amplamente utilizado em desenvolvimento de software.",
+        "ingles": "A free and open-source distributed version control system widely used in software development."
+      },
+      "category": "DevOps",
+      "categories_language": {
+        "portugues": "DevOps",
+        "ingles": "DevOps"
+      }
+    },
+    {
+      "skill_name": "Docker",
+      "skill_order": 2,
+      "skill_icon": "https://cdn.svgporn.com/logos/docker-icon.svg",
+      "skill_description": {
+        "portugues": "Uma plataforma de código aberto para criar, implantar e gerenciar contêineres.",
+        "ingles": "An open-source platform for building, deploying, and managing containers."
+      },
+      "category": "DevOps",
+      "categories_language": {
+        "portugues": "DevOps",
+        "ingles": "DevOps"
+      }
+    },
+    {
+      "skill_name": "WordPress",
+      "skill_order": 1,
+      "skill_icon": "https://cdn.svgporn.com/logos/wordpress-icon.svg",
+      "skill_description": {
+        "portugues": "Um sistema de gerenciamento de conteúdo de código aberto baseado em PHP e MySQL, frequentemente usado para criar websites e blogs.",
+        "ingles": "An open-source content management system based on PHP and MySQL, often used to create websites and blogs."
+      },
+      "category": "Outras Plataformas de Desenvolvimento",
+      "categories_language": {
+        "portugues": "Outras Plataformas de Desenvolvimento",
+        "ingles": "Outras Plataformas de Desenvolvimento"
+      }
+    },
+    {
+      "skill_name": "Moodle",
+      "skill_order": 2,
+      "skill_icon": "https://cdn.icon-icons.com/icons2/2415/PNG/512/moodle_original_logo_icon_146420.png",
+      "skill_description": {
+        "portugues": "Um sistema de gerenciamento de aprendizado de código aberto para criar e gerenciar cursos on-line.",
+        "ingles": "An open-source learning management system for creating and managing online courses."
+      },
+      "category": "Outras Plataformas de Desenvolvimento",
+      "categories_language": {
+        "portugues": "Outras Plataformas de Desenvolvimento",
+        "ingles": "Outras Plataformas de Desenvolvimento"
+      }
+    },
+    {
+      "skill_name": "Outsystems",
+      "skill_order": 3,
+      "skill_icon": "https://www.nuget.org/profiles/OutSystems/avatar?imageSize=512",
+      "skill_description": {
+        "portugues": "Uma plataforma de desenvolvimento de aplicativos de baixo código para criar, implantar e gerenciar aplicativos empresariais rapidamente.",
+        "ingles": "A low-code application development platform to create, deploy, and manage enterprise applications quickly."
+      },
+      "category": "Outras Plataformas de Desenvolvimento",
+      "categories_language": {
+        "portugues": "Outras Plataformas de Desenvolvimento",
+        "ingles": "Outras Plataformas de Desenvolvimento"
+      }
+    }
+  ]
+}

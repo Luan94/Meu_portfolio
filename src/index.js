@@ -9,6 +9,7 @@ import Skills from './components/HomePage/skills/skills';
 import Testemonials from './components/HomePage/testemonials/testemonials';
 import Divider from './components/common/Divider';
 import Menu from './components/common/Menu';
+import BannerCatchPhrase from './components/HomePage/banner/banner-catch-phrase';
 
 const App = () => {
   
@@ -31,10 +32,10 @@ const App = () => {
       <Menu changeLanguage={changeLanguage} />
       <Banner language={language} />
       <Divider/>
+      <BannerCatchPhrase language={language}/>
       <AboutMe language={language} />
-      <Skills />
-      <RecentStudies />  
-      <Testemonials/>
+      <Skills language={language} />
+     
     </div>
   );
 };
