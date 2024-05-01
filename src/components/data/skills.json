@@ -148,10 +148,10 @@
         "portugues": "Um sistema de gerenciamento de banco de dados relacional de código aberto e amplamente utilizado.",
         "ingles": "An open-source relational database management system widely used."
       },
-      "category": "Database",
+      "category": "Databases",
       "categories_language": {
-        "portugues": "Database",
-        "ingles": "Database"
+        "portugues": "Banco de Dados",
+        "ingles": "Databases"
       }
     },
     {
@@ -193,7 +193,7 @@
       "category": "Outras Plataformas de Desenvolvimento",
       "categories_language": {
         "portugues": "Outras Plataformas de Desenvolvimento",
-        "ingles": "Outras Plataformas de Desenvolvimento"
+        "ingles": "Other Development Platforms"
       }
     },
     {
@@ -207,7 +207,7 @@
       "category": "Outras Plataformas de Desenvolvimento",
       "categories_language": {
         "portugues": "Outras Plataformas de Desenvolvimento",
-        "ingles": "Outras Plataformas de Desenvolvimento"
+        "ingles": "Other Development Platforms"
       }
     },
     {
@@ -221,7 +221,7 @@
       "category": "Outras Plataformas de Desenvolvimento",
       "categories_language": {
         "portugues": "Outras Plataformas de Desenvolvimento",
-        "ingles": "Outras Plataformas de Desenvolvimento"
+        "ingles": "Other Development Platforms"
       }
     }
   ]

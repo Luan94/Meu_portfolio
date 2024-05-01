@@ -21,7 +21,7 @@ html {
     font-family: 'Roboto', sans-serif; /* Definindo Roboto como a fonte do corpo */
     margin: 0;
     background: rgb(0,0,0);
-    background: linear-gradient(-173deg, rgba(0,0,0,1) 55%, rgba(24,23,23,1) 80%);
+    background: linear-gradient(-173deg, rgba(0,0,0,1) 55%, rgb(8,4,4) 80%);
     background-size: 120% 120%;
   }
 

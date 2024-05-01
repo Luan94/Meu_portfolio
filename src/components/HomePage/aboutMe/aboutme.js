@@ -21,7 +21,7 @@ const FadeInAnimation = styled.div`
 `;
 
 const AboutMeSection = styled.section`
-  ${tw`text-white container mx-auto`}
+  ${tw`text-white container mx-auto p-6`}
 `;
 
 const Column = styled.div`

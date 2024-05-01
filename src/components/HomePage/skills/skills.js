@@ -3,10 +3,11 @@ import styled from 'styled-components';
 import tw from 'twin.macro';
 import InfoModal from '../../common/InfoModal';
 import translationUtils from '../../../hooks/translationUtils';
-import stacksData from '../../data/skills.json'; // Importando os dados diretamente
+import stacksData from '../../data/skills.json';
+import myStacksTitle from '../../data/titles_and_others.json'
 
 const StacksContainer = styled.div`
-  ${tw`p-4 rounded-lg shadow-md container mx-auto`}
+  ${tw`p-6 rounded-lg shadow-md container mx-auto`}
   max-width: 1000px;
   margin: 0 auto;
 `;
@@ -29,7 +30,7 @@ const StackItemsContainer = styled.div`
 
 const StackItem = styled.div`
   ${tw`flex flex-col items-center justify-center text-center text-white bg-neutral-950 rounded-lg p-4 cursor-pointer transition-colors`}
-  width: calc(20% - 2rem);
+  width: calc(10% - 2rem);
 
   &:hover {
     background-color: rgba(255, 255, 255, 0.1);
@@ -38,6 +39,10 @@ const StackItem = styled.div`
 
 const StackImg = styled.img`
   ${tw`max-w-8 m-3`}
+`;
+
+const StackTitle = styled.p`
+  ${tw`text-base`}
 `;
 
 
@@ -75,15 +80,15 @@ const StacksSection = ({ language }) => {
     <div>
       
       <StacksContainer>
-      <StacksTitle>Minhas Stacks</StacksTitle>
+      <StacksTitle>{translationUtils('my_stacks_title', language, myStacksTitle)}</StacksTitle>
         {Object.entries(groupedStacks).map(([category, stacks]) => (
           <CategoryContainer key={category}>
-            <CategoryTitle>{category}</CategoryTitle>
+            <CategoryTitle>{translationUtils('categories_language', language, stacks[0])}</CategoryTitle>
             <StackItemsContainer>
               {stacks.map((stack, index) => (
                 <StackItem key={index} onClick={() => handleStackItemClick(stack)}>            
                   <StackImg src={stack.skill_icon} alt={stack.skill_name} />
-                  <h3>{stack.skill_name}</h3>
+                  <StackTitle>{stack.skill_name}</StackTitle>
                 </StackItem>
               ))}
             </StackItemsContainer>
