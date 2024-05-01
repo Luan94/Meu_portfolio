@@ -6,7 +6,7 @@ import translationUtils from '../../../hooks/translationUtils';
 import stacksData from '../../data/skills.json'; // Importando os dados diretamente
 
 const StacksContainer = styled.div`
-  ${tw`p-4 bg-black rounded-lg shadow-md container mx-auto`}
+  ${tw`p-4 rounded-lg shadow-md container mx-auto`}
   max-width: 1000px;
   margin: 0 auto;
 `;

@@ -6,7 +6,7 @@ const DividerContainer = styled.div`
   height: 8vh;
   margin-top: -8vh;
   position: absolute;
-  background: linear-gradient(to bottom, rgba(0, 0, 0, 0),#010101);
+  background: linear-gradient(to bottom, rgba(0, 0, 0, 0),#000000);
 
 `;
 

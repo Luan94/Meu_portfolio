@@ -6,7 +6,7 @@ html {
   scroll-behavior: smooth;
 }
 
-// Debug
+
 // *{
 //   outline: 1px dotted red !important;
 // }
@@ -20,7 +20,9 @@ html {
   body {
     font-family: 'Roboto', sans-serif; /* Definindo Roboto como a fonte do corpo */
     margin: 0;
-    background-color: black;
+    background: rgb(0,0,0);
+    background: linear-gradient(-173deg, rgba(0,0,0,1) 55%, rgba(24,23,23,1) 80%);
+    background-size: 120% 120%;
   }
 
   h1, h2, h3, h4, h5, h6 {
