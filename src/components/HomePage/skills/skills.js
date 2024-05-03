@@ -15,7 +15,7 @@ const StacksContainer = styled.div`
 
 const CategoryContainer = styled.div`
   ${tw`mb-6`}
-  opacity: ${({ isvisible }) => (isvisible ? 1 : 0)};
+  opacity: ${({ $isvisible }) => ($isvisible ? 1 : 0)};
   transition: opacity 0.7s ease;
 `;
 
@@ -32,10 +32,26 @@ const StackItemsContainer = styled.div`
 `;
 
 const StackItem = styled.div`
-  ${tw`flex flex-col items-center justify-center text-center text-white bg-neutral-950 rounded-lg p-4 cursor-pointer`}
+ ${tw`flex flex-col items-center justify-center text-center text-white bg-neutral-950 rounded-lg p-4 cursor-pointer`}
   width: calc(100% / 6 - 2rem); 
-  opacity: ${({ isVisible }) => (isVisible ? 1 : 0)};
+  opacity: ${({ $isvisible }) => ($isvisible ? 1 : 0)};
   transition: opacity 0.7s ease;
+
+  @media (max-width: 1440px) {
+    width: calc(100% / 5 - 2rem); 
+  }
+
+  @media (max-width: 1080px) {
+    width: calc(100% / 5 - 2rem); 
+  }
+
+  @media (max-width: 768px) {
+    width: calc(100% / 2 - 2rem); 
+  }
+
+  &:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+  }
 `;
 
 const StackImg = styled.img`
@@ -52,11 +68,24 @@ const StacksSection = ({ language }) => {
   const { ref, inView } = useInView({ triggerOnce: true });
   const stackItemsRef = useRef([]);
   const categoryRef = useRef([]);
+  const [totalItems, setTotalItems] = useState(0);
 
   useEffect(() => {
     const stacksArray = Object.values(stacksData).flatMap(category => category);
     setStacks(stacksArray);
   }, []);
+
+  useEffect(() => {
+    if (inView) {
+      categoryRef.current.forEach((category) => {
+        category.style.opacity = 1;
+      });
+  
+      stackItemsRef.current.forEach((item) => {
+        item.style.opacity = 1;
+      });
+    }
+  }, [inView]);
 
   const groupByCategory = () => {
     return stacks.reduce((acc, stack) => {
@@ -68,8 +97,6 @@ const StacksSection = ({ language }) => {
     }, {});
   };
 
-  const groupedStacks = groupByCategory();
-
   const handleStackItemClick = (stack) => {
     setSelectedStack(stack);
   };
@@ -78,60 +105,38 @@ const StacksSection = ({ language }) => {
     setSelectedStack(null);
   };
 
-  useEffect(() => {
-    if (inView) {
-      let delay = 0;
-  
-      // Itera sobre cada CategoryContainer
-      categoryRef.current.forEach((category, categoryIndex) => {
-        // Adiciona atraso para o CategoryContainer começar sua animação
-        setTimeout(() => {
-          category.style.opacity = 1;
-  
-          // Itera sobre os StackItems do CategoryContainer atual
-          stackItemsRef.current
-            .slice(categoryIndex * 6, (categoryIndex + 1) * 6)
-            .forEach((item, index) => {
-              // Adiciona atraso para cada StackItem do CategoryContainer atual
-              setTimeout(() => {
-                item.style.opacity = 1;
-              }, delay + index * 5); // Atraso de 100ms entre cada StackItem
-            });
-        }, delay);
-  
-        // Calcula o atraso total para o próximo CategoryContainer
-        delay += stacks.length * 100; // Adiciona um atraso extra de 500ms entre os CategoryContainers
-      });
-    }
-  }, [inView]);
-
   return (
     <div ref={ref}>
       <StacksContainer>
         <StacksTitle>{translationUtils('my_stacks_title', language, myStacksTitle)}</StacksTitle>
-        {Object.entries(groupedStacks).map(([category, stacks], categoryIndex) => (
-          <CategoryContainer
-            key={category}
-            ref={el => (categoryRef.current[categoryIndex] = el)}
-            isVisible={inView}
-          >
-            <CategoryTitle>{translationUtils('categories_language', language, stacks[0])}</CategoryTitle>
-            <StackItemsContainer>
-              {stacks.map((stack, index) => (
-                <StackItem
-                  key={index}
-                  ref={el => (stackItemsRef.current[categoryIndex * 1 + index] = el)}
-                  onClick={() => handleStackItemClick(stack)}
-                  isVisible={inView}
-                  style={{ transitionDelay: `${index * 0.1}s` }} // Atraso entre cada StackItem
-                >
-                  <StackImg src={stack.skill_icon} alt={stack.skill_name} />
-                  <StackTitle>{stack.skill_name}</StackTitle>
-                </StackItem>
-              ))}
-            </StackItemsContainer>
-          </CategoryContainer>
-        ))}
+        {Object.entries(groupByCategory()).map(([category, stacks], categoryIndex) => {
+          const totalItemsBeforeCategory = Object.keys(groupByCategory())
+            .slice(0, categoryIndex)
+            .reduce((acc, currCategory) => acc + groupByCategory()[currCategory].length, 0);
+          return (
+            <CategoryContainer
+              key={category}
+              ref={el => (categoryRef.current[categoryIndex] = el)}
+              $isvisible={inView}
+            >
+              <CategoryTitle>{translationUtils('categories_language', language, stacks[0])}</CategoryTitle>
+              <StackItemsContainer>
+                {stacks.map((stack, index) => (
+                  <StackItem
+                    key={index}
+                    ref={el => (stackItemsRef.current[totalItemsBeforeCategory + index] = el)}
+                    onClick={() => handleStackItemClick(stack)}
+                    $isvisible={inView}
+                    style={{ transitionDelay: `${totalItemsBeforeCategory * 0.1 + index * 0.1}s` }}
+                  >
+                    <StackImg src={stack.skill_icon} alt={stack.skill_name} />
+                    <StackTitle>{stack.skill_name}</StackTitle>
+                  </StackItem>
+                ))}
+              </StackItemsContainer>
+            </CategoryContainer>
+          );
+        })}
       </StacksContainer>
 
       <InfoModal

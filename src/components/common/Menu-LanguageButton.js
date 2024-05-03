@@ -18,8 +18,8 @@ const LanguageButton = styled.div`
   ${tw`text-white inline-block p-2 text-xs`}
   cursor: pointer;
   transition: all 0.3s;
-  background-color: ${({ active }) => (active ? 'white' : 'transparent')};
-  color: ${({ active }) => (active ? 'black' : 'white')};
+  background-color: ${({ $active }) => ($active ? 'white' : 'transparent')};
+  color: ${({ $active }) => ($active ? 'black' : 'white')};
 
   &:hover {
     color: black;
@@ -39,14 +39,14 @@ const LanguageSwitch = ({ language, handleLanguageChange }) => {
         <LanguageButton
             onClick={() => handleLanguageChange("portugues")}
             aria-label="Mudar para Português"
-            active={language === "portugues"}
+            $active={language === "portugues"}
         >
             PT-BR
         </LanguageButton>
         <LanguageButton
             onClick={() => handleLanguageChange("ingles")}
             aria-label="Mudar para Inglês"
-            active={language === "ingles"}
+            $active={language === "ingles"}
         >
             ENG
         </LanguageButton>
