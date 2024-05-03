@@ -1,8 +1,10 @@
+// MenuDesktopDesktop.js
+
 import React, { useState, useEffect } from "react";
 import styled from "styled-components";
 import tw from 'twin.macro';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faGlobe } from '@fortawesome/free-solid-svg-icons';
+import LanguageSwitch from "./Menu-LanguageButton";
+import Logo from '../../assets/logos/Logo.png'
 
 const MenuWrapper = styled.div`
   position: fixed;
@@ -25,7 +27,6 @@ const MenuContainer = styled.nav`
   justify-content: space-between;
   align-items: center;
   padding: 1rem;
- 
 `;
 
 const MenuItem = styled.a`
@@ -40,32 +41,12 @@ const MenuItem = styled.a`
   }
 `;
 
-const Logo = styled.img`
-  max-width: 150px;
+const LogoImg = styled.img`
+  
 `;
 
-const LanguageButtonWrapper = styled.div`
-  ${tw`outline outline-white outline-1 rounded `}
-`;
-
-const LanguageSwitchComponent = styled.div`
-  ${tw`flex items-center`}
-`;
-
-const LanguageButton = styled.div`
-  ${tw`text-white inline-block p-2`}
-  cursor: pointer;
-  transition: all 0.3s;
-  background-color: ${({ active }) => (active ? 'white' : 'transparent')};
-  color: ${({ active }) => (active ? 'black' : 'white')};
-
-  &:hover {
-    color: black;
-    background: white;
-  }
-`;
-
-const MenuDesktop = ({ changeLanguage }) => {
+const MenuDesktopDesktop = ({ changeLanguage }) => {
+  
   const [prevScrollPos, setPrevScrollPos] = useState(0);
   const [isVisible, setIsVisible] = useState(true);
   const [language, setLanguage] = useState(() => {
@@ -94,36 +75,18 @@ const MenuDesktop = ({ changeLanguage }) => {
   return (
     <MenuWrapper className={!isVisible ? "hidden" : ""}>
       <MenuContainer>
-        <Logo src="/logo.png" alt="Logo" />
-        
+      <LogoImg src={Logo}/>
+
         <div>
           <MenuItem href="#">Home</MenuItem>
           <MenuItem href="#about-me">About</MenuItem>
           <MenuItem href="#">Services</MenuItem>
           <MenuItem href="#">Contact</MenuItem>
         </div>
-        <LanguageSwitchComponent>
-          <FontAwesomeIcon icon={faGlobe} style={{ color: 'white', marginRight: '10px', cursor: 'pointer' }} />
-          <LanguageButtonWrapper>       
-            <LanguageButton
-              onClick={() => handleLanguageChange("portugues")}
-              aria-label="Mudar para Português"
-              active={language === "portugues"}
-            >
-              PT-BR
-            </LanguageButton>
-            <LanguageButton
-              onClick={() => handleLanguageChange("ingles")}
-              aria-label="Mudar para Inglês"
-              active={language === "ingles"}
-            >
-              ENG
-            </LanguageButton>
-          </LanguageButtonWrapper>
-        </LanguageSwitchComponent>
+        <LanguageSwitch language={language} handleLanguageChange={handleLanguageChange} />
       </MenuContainer>
     </MenuWrapper>
   );
 };
 
-export default MenuDesktop;
+export default MenuDesktopDesktop;
