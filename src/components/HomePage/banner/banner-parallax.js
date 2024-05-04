@@ -29,7 +29,7 @@ const BannerParallax = ({ mousePosition }) => {
       setImages(generateImages());
       setImagesGenerated(true);
     }
-  }, []);
+  }, [imagesGenerated]);
 
   return (
     <>

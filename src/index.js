@@ -1,15 +1,14 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import ReactDOM from 'react-dom/client';
 import reportWebVitals from './reportWebVitals';
 import GlobalStyles from './components/common/GlobalStyles';
 import Banner from './components/HomePage/banner/banner';
 import AboutMe from './components/HomePage/aboutMe/aboutme';
-import RecentStudies from './components/HomePage/recentstudies/recentStudies';
 import Skills from './components/HomePage/skills/skills';
-import Testemonials from './components/HomePage/testemonials/testemonials';
 import Divider from './components/common/Divider';
 import Menu from './components/common/Menu';
 import BannerCatchPhrase from './components/HomePage/banner/banner-catch-phrase';
+import Footer from './components/common/footer';
 
 const App = () => {
   
@@ -35,6 +34,7 @@ const App = () => {
       <BannerCatchPhrase language={language}/>
       <AboutMe language={language} />
       <Skills language={language} />
+      <Footer language={language}></Footer>
      
     </div>
   );

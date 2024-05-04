@@ -25,6 +25,9 @@ const StacksTitle = styled.h3`
 
 const CategoryTitle = styled.h4`
   ${tw`text-white text-center mb-2 mt-2`}
+  opacity: ${({ $isvisible }) => ($isvisible ? 1 : 0)};
+  transition: opacity 0.7s ease;
+  transition-delay: ${({ $delay }) => `${$delay}s`};
 `;
 
 const StackItemsContainer = styled.div`
@@ -36,6 +39,7 @@ const StackItem = styled.div`
   width: calc(100% / 6 - 2rem); 
   opacity: ${({ $isvisible }) => ($isvisible ? 1 : 0)};
   transition: opacity 0.7s ease;
+  transition-delay: ${({ $delay }) => `${$delay}s`};
 
   @media (max-width: 1440px) {
     width: calc(100% / 5 - 2rem); 
@@ -68,7 +72,6 @@ const StacksSection = ({ language }) => {
   const { ref, inView } = useInView({ triggerOnce: true });
   const stackItemsRef = useRef([]);
   const categoryRef = useRef([]);
-  const [totalItems, setTotalItems] = useState(0);
 
   useEffect(() => {
     const stacksArray = Object.values(stacksData).flatMap(category => category);
@@ -80,7 +83,7 @@ const StacksSection = ({ language }) => {
       categoryRef.current.forEach((category) => {
         category.style.opacity = 1;
       });
-  
+
       stackItemsRef.current.forEach((item) => {
         item.style.opacity = 1;
       });
@@ -119,7 +122,11 @@ const StacksSection = ({ language }) => {
               ref={el => (categoryRef.current[categoryIndex] = el)}
               $isvisible={inView}
             >
-              <CategoryTitle>{translationUtils('categories_language', language, stacks[0])}</CategoryTitle>
+              <CategoryTitle
+                $isvisible={inView}
+                $delay={totalItemsBeforeCategory * 0.1}>
+                {translationUtils('categories_language', language, stacks[0])}
+              </CategoryTitle>
               <StackItemsContainer>
                 {stacks.map((stack, index) => (
                   <StackItem
@@ -127,7 +134,7 @@ const StacksSection = ({ language }) => {
                     ref={el => (stackItemsRef.current[totalItemsBeforeCategory + index] = el)}
                     onClick={() => handleStackItemClick(stack)}
                     $isvisible={inView}
-                    style={{ transitionDelay: `${totalItemsBeforeCategory * 0.1 + index * 0.1}s` }}
+                    $delay={totalItemsBeforeCategory * 0.1 + index * 0.1}
                   >
                     <StackImg src={stack.skill_icon} alt={stack.skill_name} />
                     <StackTitle>{stack.skill_name}</StackTitle>
