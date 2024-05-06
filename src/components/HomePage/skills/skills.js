@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState, useEffect, useRef, useCallback } from 'react';
 import styled from 'styled-components';
 import tw from 'twin.macro';
 import InfoModal from '../../common/InfoModal';
@@ -66,12 +66,11 @@ const StackTitle = styled.p`
   ${tw`text-base`}
 `;
 
-const StacksSection = ({ language }) => {
+const StacksSection = React.memo(({ language }) => {
   const [stacks, setStacks] = useState([]);
   const [selectedStack, setSelectedStack] = useState(null);
   const { ref, inView } = useInView({ triggerOnce: true });
-  const stackItemsRef = useRef([]);
-  const categoryRef = useRef([]);
+  const [categoriesVisible, setCategoriesVisible] = useState(false);
 
   useEffect(() => {
     const stacksArray = Object.values(stacksData).flatMap(category => category);
@@ -79,18 +78,12 @@ const StacksSection = ({ language }) => {
   }, []);
 
   useEffect(() => {
-    if (inView) {
-      categoryRef.current.forEach((category) => {
-        category.style.opacity = 1;
-      });
-
-      stackItemsRef.current.forEach((item) => {
-        item.style.opacity = 1;
-      });
+    if (inView && !categoriesVisible) {
+      setCategoriesVisible(true);
     }
-  }, [inView]);
+  }, [inView, categoriesVisible]);
 
-  const groupByCategory = () => {
+  const groupByCategory = useCallback(() => {
     return stacks.reduce((acc, stack) => {
       if (!acc[stack.category]) {
         acc[stack.category] = [];
@@ -98,15 +91,15 @@ const StacksSection = ({ language }) => {
       acc[stack.category].push(stack);
       return acc;
     }, {});
-  };
+  }, [stacks]);
 
-  const handleStackItemClick = (stack) => {
+  const handleStackItemClick = useCallback((stack) => {
     setSelectedStack(stack);
-  };
+  }, []);
 
-  const handleCloseModal = () => {
+  const handleCloseModal = useCallback(() => {
     setSelectedStack(null);
-  };
+  }, []);
 
   return (
     <div ref={ref}>
@@ -119,11 +112,10 @@ const StacksSection = ({ language }) => {
           return (
             <CategoryContainer
               key={category}
-              ref={el => (categoryRef.current[categoryIndex] = el)}
-              $isvisible={inView}
+              $isvisible={categoriesVisible}
             >
               <CategoryTitle
-                $isvisible={inView}
+                $isvisible={categoriesVisible}
                 $delay={totalItemsBeforeCategory * 0.1}>
                 {translationUtils('categories_language', language, stacks[0])}
               </CategoryTitle>
@@ -131,9 +123,8 @@ const StacksSection = ({ language }) => {
                 {stacks.map((stack, index) => (
                   <StackItem
                     key={index}
-                    ref={el => (stackItemsRef.current[totalItemsBeforeCategory + index] = el)}
                     onClick={() => handleStackItemClick(stack)}
-                    $isvisible={inView}
+                    $isvisible={categoriesVisible}
                     $delay={totalItemsBeforeCategory * 0.1 + index * 0.1}
                   >
                     <StackImg src={stack.skill_icon} alt={stack.skill_name} />
@@ -153,6 +144,6 @@ const StacksSection = ({ language }) => {
       />
     </div>
   );
-};
+});
 
 export default StacksSection;

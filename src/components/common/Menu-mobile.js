@@ -5,7 +5,7 @@ import styled from "styled-components";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faBars, faTimes } from '@fortawesome/free-solid-svg-icons'; 
 import LanguageSwitch from "./Menu-LanguageButton";
-import Logo from '../../assets/logos/Logo.png'
+import Logo from '../../assets/logos/Logo.png';
 
 const MobileMenuWrapper = styled.div`
   position: fixed;
@@ -49,35 +49,29 @@ const LogoMobile = styled.img`
 `;
 
 const MenuMobile = ({ changeLanguage }) => {
-  const [isMenuOpen, setIsMenuOpen] = useState(false);
-
-  const handleMenuToggle = () => {
-    setIsMenuOpen(!isMenuOpen);
-  };
-
-  const [language, setLanguage] = useState(() => {
-    // Inicializar o idioma a partir do localStorage ou usar "portugues" como padrão
-    const storedLanguage = localStorage.getItem('language');
-    return storedLanguage || 'portugues';
+  const [menuState, setMenuState] = useState({
+    isOpen: false,
+    language: localStorage.getItem('language') || 'portugues'
   });
 
+  const handleMenuToggle = () => {
+    setMenuState({ ...menuState, isOpen: !menuState.isOpen });
+  };
+
   const handleLanguageChange = (lang) => {
-    setLanguage(lang);
+    setMenuState({ ...menuState, language: lang });
     changeLanguage(lang);
     localStorage.setItem('language', lang);
   };
 
-  
-
   return (
     <>
-      <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', padding: '1rem', position: 'fixed', top: 0, left: 0, right: 0, backgroundColor: 'black', zIndex: 1000 }}>
-      <LogoMobile src={Logo}/>
-
-        <FontAwesomeIcon icon={isMenuOpen ? faTimes : faBars} onClick={handleMenuToggle} style={{ color: 'white', cursor: 'pointer', fontSize: '1.5rem' }} /> 
-        <LanguageSwitch language={language} handleLanguageChange={handleLanguageChange} />
+      <div className="menu-mobile-header">
+        <LogoMobile src={Logo}/>
+        <FontAwesomeIcon icon={menuState.isOpen ? faTimes : faBars} onClick={handleMenuToggle} style={{ color: 'white', cursor: 'pointer', fontSize: '1.5rem' }} /> 
+        <LanguageSwitch language={menuState.language} handleLanguageChange={handleLanguageChange} />
       </div>
-      {isMenuOpen && (
+      {menuState.isOpen && (
         <MobileMenuWrapper>
           <MobileMenuContainer>
             <MobileMenuItems>

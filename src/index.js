@@ -1,5 +1,5 @@
-import React, { useState, useEffect } from 'react';
-import ReactDOM from 'react-dom/client';
+import React, { useState } from 'react';
+import ReactDOM from 'react-dom';
 import reportWebVitals from './reportWebVitals';
 import GlobalStyles from './components/common/GlobalStyles';
 import Banner from './components/HomePage/banner/banner';
@@ -9,29 +9,11 @@ import Divider from './components/common/Divider';
 import Menu from './components/common/Menu';
 import BannerCatchPhrase from './components/HomePage/banner/banner-catch-phrase';
 import Footer from './components/common/footer';
-import LoadingAnimation from './components/common/loading-animation';
 
 const App = () => {
-  const [loading, setLoading] = useState(true);
+  const getLanguageFromStorage = () => localStorage.getItem('language') || 'portugues';
 
-  useEffect(() => {
-    const handleLoad = () => {
-      setLoading(false);
-    };
-
-    window.addEventListener('load', handleLoad);
-
-    return () => {
-      window.removeEventListener('load', handleLoad);
-    };
-  }, []);
-
-  const getLanguageFromStorage = () => {
-    const storedLanguage = localStorage.getItem('language');
-    return storedLanguage ? storedLanguage : 'portugues';
-  };
-
-  const [language, setLanguage] = useState(getLanguageFromStorage());
+  const [language, setLanguage] = useState(getLanguageFromStorage()); 
 
   const changeLanguage = (lang) => {
     setLanguage(lang);
@@ -39,28 +21,24 @@ const App = () => {
   };
 
   return (
-    <div>
-      {loading ? <LoadingAnimation isLoading={loading} /> : (
-        <>
-          <GlobalStyles />
-          <Menu changeLanguage={changeLanguage} />
-          <Banner language={language} />
-          <Divider />
-          <BannerCatchPhrase language={language} />
-          <AboutMe language={language} />
-          <Skills language={language} />
-          <Footer language={language}></Footer>
-        </>
-      )}
-    </div>
+    <React.StrictMode>
+      <div>
+        <GlobalStyles/>
+        <Menu changeLanguage={changeLanguage} />
+        <Banner language={language} />
+        <Divider/>
+        <BannerCatchPhrase language={language}/>
+        <AboutMe language={language} />
+        <Skills language={language} />
+        <Footer language={language}></Footer>
+      </div>
+    </React.StrictMode>
   );
 };
 
-const root = ReactDOM.createRoot(document.getElementById('root'));
-root.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>
+ReactDOM.render(
+  <App />,
+  document.getElementById('root')
 );
 
-reportWebVitals();
+

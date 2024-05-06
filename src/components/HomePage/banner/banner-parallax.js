@@ -20,16 +20,20 @@ const generateImages = () => {
   }));
 };
 
-const BannerParallax = ({ mousePosition }) => {
-  const [imagesGenerated, setImagesGenerated] = useState(false);
-  const [images, setImages] = useState([]);
+const BannerParallax = React.memo(({ mousePosition }) => {
+  const [images, setImages] = useState(generateImages());
 
   useEffect(() => {
-    if (!imagesGenerated) {
+    const handleResize = () => {
       setImages(generateImages());
-      setImagesGenerated(true);
-    }
-  }, [imagesGenerated]);
+    };
+
+    window.addEventListener('resize', handleResize);
+
+    return () => {
+      window.removeEventListener('resize', handleResize);
+    };
+  }, []);
 
   return (
     <>
@@ -69,6 +73,6 @@ const BannerParallax = ({ mousePosition }) => {
       })}
     </>
   );
-};
+});
 
 export default BannerParallax;

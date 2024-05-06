@@ -19,26 +19,29 @@ const Cursor = styled.span`
   animation: ${blinkAnimation} 1s step-end infinite;
 `;
 
-const Typewriter = ({ text, delay }) => {
+const Typewriter = ({ text, delay, cursorStyle }) => {
   const [currentText, setCurrentText] = useState('');
   const [currentIndex, setCurrentIndex] = useState(0);
 
   useEffect(() => {
-    if (currentIndex < text.length) {
-      const timeout = setTimeout(() => {
-        setCurrentText(prevText => prevText + text[currentIndex]);
-        setCurrentIndex(prevIndex => prevIndex + 1);
-      }, delay);
-  
-      return () => clearTimeout(timeout);
-    }
-  }, [currentIndex, delay, text]);
+    const typingInterval = setInterval(() => {
+      if (currentIndex === text.length) {
+        // Se o texto já foi completamente digitado, não faz nada
+        return;
+      }
+
+      setCurrentText(prevText => prevText + text[currentIndex]);
+      setCurrentIndex(prevIndex => prevIndex + 1);
+    }, delay);
+
+    return () => clearInterval(typingInterval);
+  }, [text, delay, currentIndex]);
 
   return (
     <span>
       {currentText}
       {/* Barra de digitação */}
-      <Cursor> |</Cursor>
+      <Cursor style={cursorStyle}> |</Cursor>
     </span>
   );
 };

@@ -47,10 +47,12 @@ const LogoImg = styled.img`
 
 const MenuDesktopDesktop = ({ changeLanguage }) => {
   
-  const [prevScrollPos, setPrevScrollPos] = useState(0);
-  const [isVisible, setIsVisible] = useState(true);
+  const [scrollState, setScrollState] = useState({
+    prevScrollPos: 0,
+    isVisible: true
+  });
+
   const [language, setLanguage] = useState(() => {
-    // Inicializar o idioma a partir do localStorage ou usar "portugues" como padrão
     const storedLanguage = localStorage.getItem('language');
     return storedLanguage || 'portugues';
   });
@@ -58,13 +60,13 @@ const MenuDesktopDesktop = ({ changeLanguage }) => {
   useEffect(() => {
     function handleScroll() {
       const currentScrollPos = window.pageYOffset;
-      setIsVisible(prevScrollPos > currentScrollPos || currentScrollPos === 0);
-      setPrevScrollPos(currentScrollPos);
+      const isVisible = scrollState.prevScrollPos > currentScrollPos || currentScrollPos === 0;
+      setScrollState({ prevScrollPos: currentScrollPos, isVisible });
     }
 
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
-  }, [prevScrollPos, isVisible]);
+  }, [scrollState]);
 
   const handleLanguageChange = (lang) => {
     setLanguage(lang);
@@ -73,9 +75,9 @@ const MenuDesktopDesktop = ({ changeLanguage }) => {
   };
 
   return (
-    <MenuWrapper className={!isVisible ? "hidden" : ""}>
+    <MenuWrapper className={!scrollState.isVisible ? "hidden" : ""}>
       <MenuContainer>
-      <LogoImg src={Logo}/>
+        <LogoImg src={Logo} />
 
         <div>
           <MenuItem href="#">Home</MenuItem>
