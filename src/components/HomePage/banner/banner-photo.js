@@ -1,7 +1,7 @@
 import React from 'react';
 import styled, { keyframes } from 'styled-components';
 import tw from 'twin.macro';
-import ImageSrc from '../../../assets/images/AboutMe/profile-pic.png';
+import ImageSrc from '../../../assets/images/AboutMe/profile-pic.webp';
 
 const gradientAnimation = keyframes`
   0% {

@@ -11,6 +11,7 @@
     "@testing-library/jest-dom": "^5.17.0",
     "@testing-library/react": "^13.4.0",
     "@testing-library/user-event": "^13.5.0",
+    "babel-plugin-macros": "^3.1.0",
     "bootstrap": "^5.3.2",
     "react": "^18.3.1",
     "react-dom": "^18.2.0",
@@ -21,7 +22,7 @@
     "slick-carousel": "^1.8.1",
     "spring": "^0.0.0",
     "styled-components": "^6.1.8",
-    "tailwindcss": "^3.4.1",
+    "tailwindcss": "^3.4.3",
     "twin.macro": "^3.4.1",
     "web-vitals": "^2.1.4"
   },
@@ -52,7 +53,7 @@
     ]
   },
   "devDependencies": {
-    "gh-pages": "^6.1.1",
-    "@babel/plugin-proposal-private-property-in-object": "^7.16.5"
+    "@babel/plugin-proposal-private-property-in-object": "^7.16.5",
+    "gh-pages": "^6.1.1"
   }
 }

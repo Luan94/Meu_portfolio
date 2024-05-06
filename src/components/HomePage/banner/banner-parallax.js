@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import styled from 'styled-components';
-import CircleImage from '../../../assets/images/banner/circle.png';
-import SemiCircleImage from '../../../assets/images/banner/semi-circle.png';
-import DotsImage from '../../../assets/images/banner/dots.png';
+import CircleImage from '../../../assets/images/banner/circle.webp';
+import SemiCircleImage from '../../../assets/images/banner/semi-circle.webp';
+import DotsImage from '../../../assets/images/banner/dots.webp';
 
 const ParallaxImage = styled.img`
   position: absolute;
@@ -10,7 +10,7 @@ const ParallaxImage = styled.img`
   filter: grayscale(100%);
   opacity: 0.5;
   transition: transform 0.3s ease-in-out;
-  width: 120px;
+  width: 8rem;
 `;
 
 const generateImages = () => {

@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-import backgroundImage from '../../../assets/images/banner/bg-coding-3.jpg';
+import backgroundImage from '../../../assets/images/banner/bg-coding-3.webp';
 
 const Background = styled.div`
   position: absolute;
