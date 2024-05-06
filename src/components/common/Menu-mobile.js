@@ -66,7 +66,7 @@ const MenuMobile = ({ changeLanguage }) => {
 
   return (
     <>
-      <div className="menu-mobile-header">
+      <div className="menu-mobile-header" style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', padding: '1rem', position: 'fixed', top: 0, left: 0, right: 0, backgroundColor: 'black', zIndex: 1000 }}>
         <LogoMobile src={Logo}/>
         <FontAwesomeIcon icon={menuState.isOpen ? faTimes : faBars} onClick={handleMenuToggle} style={{ color: 'white', cursor: 'pointer', fontSize: '1.5rem' }} /> 
         <LanguageSwitch language={menuState.language} handleLanguageChange={handleLanguageChange} />

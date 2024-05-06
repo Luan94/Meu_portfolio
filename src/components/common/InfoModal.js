@@ -5,7 +5,7 @@ import tw from 'twin.macro';
 const ModalBackdrop = styled.div`
   ${tw`fixed top-0 left-0 w-full h-full flex items-center justify-center`}
   background-color: rgba(0, 0, 0, 0.5); /* Cor de fundo cinza escuro */
-  opacity: ${({ isOpen }) => (isOpen ? '1' : '0')};
+  opacity: ${({ $isopen }) => ($isopen ? '1' : '0')};
   transition: opacity 0.3s ease;
 `;
 
@@ -17,7 +17,7 @@ const CloseButton = styled.span`
   ${tw`absolute top-2 right-2 cursor-pointer text-xl`}
 `;
 
-const InfoModal = ({ isOpen, message, onClose }) => {
+const InfoModal = ({ $isopen, message, onClose }) => {
   const modalRef = useRef(null);
 
   useEffect(() => {
@@ -34,7 +34,7 @@ const InfoModal = ({ isOpen, message, onClose }) => {
   }, [onClose]);
 
   return (
-    <ModalBackdrop isOpen={isOpen}>
+    <ModalBackdrop $isopen={$isopen}>
       <ModalContent ref={modalRef}>
         <CloseButton onClick={onClose}>&times;</CloseButton>
         <p>{message}</p>

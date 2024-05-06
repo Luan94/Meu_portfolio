@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import ReactDOM from 'react-dom';
+import ReactDOM from 'react-dom/client';
 import reportWebVitals from './reportWebVitals';
 import GlobalStyles from './components/common/GlobalStyles';
 import Banner from './components/HomePage/banner/banner';
@@ -11,34 +11,40 @@ import BannerCatchPhrase from './components/HomePage/banner/banner-catch-phrase'
 import Footer from './components/common/footer';
 
 const App = () => {
-  const getLanguageFromStorage = () => localStorage.getItem('language') || 'portugues';
+  
+  const getLanguageFromStorage = () => {
+    const storedLanguage = localStorage.getItem('language');
+    return storedLanguage ? storedLanguage : 'portugues';
+  };
 
   const [language, setLanguage] = useState(getLanguageFromStorage()); 
 
+  
   const changeLanguage = (lang) => {
     setLanguage(lang);
     localStorage.setItem('language', lang);
   };
 
   return (
-    <React.StrictMode>
-      <div>
-        <GlobalStyles/>
-        <Menu changeLanguage={changeLanguage} />
-        <Banner language={language} />
-        <Divider/>
-        <BannerCatchPhrase language={language}/>
-        <AboutMe language={language} />
-        <Skills language={language} />
-        <Footer language={language}></Footer>
-      </div>
-    </React.StrictMode>
+    <div>
+      <GlobalStyles/>
+      <Menu changeLanguage={changeLanguage} />
+      <Banner language={language} />
+      <Divider/>
+      <BannerCatchPhrase language={language}/>
+      <AboutMe language={language} />
+      <Skills language={language} />
+      <Footer language={language}></Footer>
+     
+    </div>
   );
 };
 
-ReactDOM.render(
-  <App />,
-  document.getElementById('root')
+const root = ReactDOM.createRoot(document.getElementById('root'));
+root.render(
+  <React.StrictMode>
+    <App />
+  </React.StrictMode>
 );
 
-
+reportWebVitals();

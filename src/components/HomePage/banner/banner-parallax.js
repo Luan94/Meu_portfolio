@@ -11,6 +11,18 @@ const ParallaxImage = styled.img`
   opacity: 0.5;
   transition: transform 0.3s ease-in-out;
   width: 8rem;
+  
+  @media (max-width: 1440px) {
+    width: 7rem;
+  }
+
+  @media (max-width: 1080px) {
+    width: 6rem; 
+  }
+
+  @media (max-width: 768px) {
+    width: 8rem;
+  }
 `;
 
 const generateImages = () => {
