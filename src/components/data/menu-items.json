@@ -1,0 +1,24 @@
+{
+    "menu_aboutme": {
+      "menu_item_language": {
+        "ingles": "About me",
+        "portugues": "Sobre mim"
+      },
+      "link": "#aboutmeWrapper"
+    },
+    "menu_stacks": {
+      "menu_item_language": {
+        "ingles": "My Stacks",
+        "portugues": "Minhas Stacks"
+      },
+      "link": "#StacksWrapper"
+    },
+    "menu_projects": {
+      "menu_item_language": {
+        "ingles": "My Projects",
+        "portugues": "Meus Projetos"
+      },
+      "link": "#ProjectsWrapper"
+    }
+  }
+  

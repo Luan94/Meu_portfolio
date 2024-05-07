@@ -5,6 +5,8 @@ import styled from "styled-components";
 import tw from 'twin.macro';
 import LanguageSwitch from "./Menu-LanguageButton";
 import Logo from '../../assets/logos/Logo.png'
+import MenuData from '../data/menu-items.json'
+import translationUtils from "../../hooks/translationUtils";
 
 const MenuWrapper = styled.div`
   position: fixed;
@@ -26,7 +28,7 @@ const MenuContainer = styled.nav`
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 1rem;
+  
 `;
 
 const MenuItem = styled.a`
@@ -35,9 +37,10 @@ const MenuItem = styled.a`
   text-decoration: none;
   margin-right: 1.5rem;
   transition: color 0.3s;
+  padding: 1rem 0.3rem 1rem 0.3rem;
 
   &:hover {
-    color: red;
+    color: gray;
   }
 `;
 
@@ -75,19 +78,20 @@ const MenuDesktopDesktop = ({ changeLanguage }) => {
   };
 
   return (
-    <MenuWrapper className={!scrollState.isVisible ? "hidden" : ""}>
-      <MenuContainer>
-        <LogoImg src={Logo} />
+<MenuWrapper className={!scrollState.isVisible ? "hidden" : ""}>
+  <MenuContainer>
+    <LogoImg src={Logo} />
+    <div>
+      {Object.keys(MenuData).map((key) => (
+        <MenuItem key={key} href={MenuData[key].link}>
+          {translationUtils('menu_item_language', language, MenuData[key])}
+        </MenuItem>
+      ))}
+    </div>
+    <LanguageSwitch language={language} handleLanguageChange={handleLanguageChange} />
+  </MenuContainer>
+</MenuWrapper>
 
-        <div>
-          <MenuItem href="#">Home</MenuItem>
-          <MenuItem href="#about-me">About</MenuItem>
-          <MenuItem href="#">Services</MenuItem>
-          <MenuItem href="#">Contact</MenuItem>
-        </div>
-        <LanguageSwitch language={language} handleLanguageChange={handleLanguageChange} />
-      </MenuContainer>
-    </MenuWrapper>
   );
 };
 

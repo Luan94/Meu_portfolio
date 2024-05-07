@@ -4,6 +4,8 @@ import tw from 'twin.macro';
 import styled from 'styled-components';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faGithub, faLinkedin } from '@fortawesome/free-brands-svg-icons';
+import FooterTxt from '../data/titles_and_others.json';
+import translationUtils from '../../hooks/translationUtils';
 
 // Estilos usando tw e styled-components
 const FooterWrapper = styled.footer`
@@ -45,10 +47,10 @@ const Footer = ({ language }) => {
     <FooterWrapper>
       <FooterInnerWrapper>
         <FooterTextWrapper>
-          <FooterLeftText>Feito com ♥ por Luan Vilas Boas</FooterLeftText>
+          <FooterLeftText>{translationUtils('footer_made_with_heart', language, FooterTxt)}</FooterLeftText>
         </FooterTextWrapper>
         <FooterSocialMediaWrapper>
-          <FooterRightText>Siga-me</FooterRightText>
+          <FooterRightText>{translationUtils('footer_follow_me', language, FooterTxt)}</FooterRightText>
           <FooterSocialButton href="https://www.linkedin.com/in/luanvilasboas-desenvolvedor/" target="_blank">
             <FontAwesomeIcon icon={faLinkedin} size="2x" />
           </FooterSocialButton>

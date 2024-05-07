@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useCallback } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import styled from 'styled-components';
 import tw from 'twin.macro';
 import InfoModal from '../../common/InfoModal';
@@ -27,7 +27,7 @@ const CategoryTitle = styled.h4`
   ${tw`text-white text-center mb-2 mt-2`}
   opacity: ${({ $isvisible }) => ($isvisible ? 1 : 0)};
   transition: opacity 0.7s ease;
-  transition-delay: ${({ $delay }) => `${$delay}s`};
+  transition-delay: ${({ $delay }) => $delay}s;
 `;
 
 const StackItemsContainer = styled.div`
@@ -35,11 +35,10 @@ const StackItemsContainer = styled.div`
 `;
 
 const StackItem = styled.div`
- ${tw`flex flex-col items-center justify-center text-center text-white bg-neutral-950 rounded-lg p-4 cursor-pointer`}
+  ${tw`flex flex-col items-center justify-center text-center text-white bg-neutral-950 rounded-lg p-4 cursor-pointer`}
   width: calc(100% / 6 - 2rem); 
   opacity: ${({ $isvisible }) => ($isvisible ? 1 : 0)};
   transition: opacity 0.7s ease;
-  transition-delay: ${({ $delay }) => `${$delay}s`};
 
   @media (max-width: 1440px) {
     width: calc(100% / 5 - 2rem); 
@@ -66,11 +65,14 @@ const StackTitle = styled.p`
   ${tw`text-base`}
 `;
 
-const StacksSection = React.memo(({ language }) => {
+const StacksSection = ({ language }) => {
   const [stacks, setStacks] = useState([]);
   const [selectedStack, setSelectedStack] = useState(null);
   const { ref, inView } = useInView({ triggerOnce: true });
-  const [categoriesVisible, setCategoriesVisible] = useState(false);
+  const stackItemsRef = useRef([]);
+  const categoryRef = useRef([]);
+  const [totalItems, setTotalItems] = useState(0);
+
 
   useEffect(() => {
     const stacksArray = Object.values(stacksData).flatMap(category => category);
@@ -78,12 +80,18 @@ const StacksSection = React.memo(({ language }) => {
   }, []);
 
   useEffect(() => {
-    if (inView && !categoriesVisible) {
-      setCategoriesVisible(true);
+    if (inView) {
+      categoryRef.current.forEach((category) => {
+        category.style.opacity = 1;
+      });
+  
+      stackItemsRef.current.forEach((item) => {
+        item.style.opacity = 1;
+      });
     }
-  }, [inView, categoriesVisible]);
+  }, [inView]);
 
-  const groupByCategory = useCallback(() => {
+  const groupByCategory = () => {
     return stacks.reduce((acc, stack) => {
       if (!acc[stack.category]) {
         acc[stack.category] = [];
@@ -91,15 +99,15 @@ const StacksSection = React.memo(({ language }) => {
       acc[stack.category].push(stack);
       return acc;
     }, {});
-  }, [stacks]);
+  };
 
-  const handleStackItemClick = useCallback((stack) => {
+  const handleStackItemClick = (stack) => {
     setSelectedStack(stack);
-  }, []);
+  };
 
-  const handleCloseModal = useCallback(() => {
+  const handleCloseModal = () => {
     setSelectedStack(null);
-  }, []);
+  };
 
   return (
     <div ref={ref}>
@@ -112,20 +120,25 @@ const StacksSection = React.memo(({ language }) => {
           return (
             <CategoryContainer
               key={category}
-              $isvisible={categoriesVisible}
+              ref={el => (categoryRef.current[categoryIndex] = el)}
+              $isvisible={inView}
+              style={{ transitionDelay: `${totalItemsBeforeCategory * 0.1}s` }}              
             >
               <CategoryTitle
-                $isvisible={categoriesVisible}
-                $delay={totalItemsBeforeCategory * 0.1}>
+                key={categoryIndex}
+                $isvisible={inView}
+                $delay={totalItemsBeforeCategory * 0.1}
+              >
                 {translationUtils('categories_language', language, stacks[0])}
               </CategoryTitle>
               <StackItemsContainer>
                 {stacks.map((stack, index) => (
                   <StackItem
                     key={index}
+                    ref={el => (stackItemsRef.current[totalItemsBeforeCategory + index] = el)}
                     onClick={() => handleStackItemClick(stack)}
-                    $isvisible={categoriesVisible}
-                    $delay={totalItemsBeforeCategory * 0.1 + index * 0.1}
+                    $isvisible={inView}
+                    style={{ transitionDelay: `${totalItemsBeforeCategory * 0.1 + index * 0.1}s` }}
                   >
                     <StackImg src={stack.skill_icon} alt={stack.skill_name} />
                     <StackTitle>{stack.skill_name}</StackTitle>
@@ -144,6 +157,6 @@ const StacksSection = React.memo(({ language }) => {
       />
     </div>
   );
-});
+};
 
 export default StacksSection;

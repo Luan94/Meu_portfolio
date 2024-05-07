@@ -29,12 +29,12 @@ const App = () => {
     <div>
       <GlobalStyles/>
       <Menu changeLanguage={changeLanguage} />
-      <Banner language={language} />
+      <Banner language={language} id="BannerWrapper"/>
       <Divider/>
       <BannerCatchPhrase language={language}/>
-      <AboutMe language={language} />
-      <Skills language={language} />
-      <Footer language={language}></Footer>
+      <AboutMe language={language} id="aboutmeWrapper"/>
+      <Skills language={language} id="StacksWrapper"/>
+      <Footer language={language} id="FooterWrapper"/>
      
     </div>
   );

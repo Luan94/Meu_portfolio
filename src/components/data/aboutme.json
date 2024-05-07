@@ -7,6 +7,19 @@
   "about_me_content": {
     "portugues": "Sou um profissional dedicado e apaixonado por desenvolvimento web. Tenho experiência em diversas tecnologias, como HTML, CSS, JavaScript, e estou sempre buscando aprender mais. Meu foco principal é criar experiências digitais incríveis e funcionais que atendam às necessidades dos usuários.",
     "ingles": "I'm a dedicated professional passionate about web development. I have experience in various technologies like HTML, CSS, JavaScript, and I'm always eager to learn more. My main focus is on creating amazing and functional digital experiences that meet user needs."
+  },
+  "about_me_projects_title": {
+    "portugues": "Meus Projetos",
+    "ingles": "My Projects"
+  },
+  "about_me_projects_content": {
+    "portugues": "Estou me dedicando em projetos pessoais para consolidar conhecimentos, esclarecer dúvidas e aprimorar habilidades de programação, apesar de focar mais no desenvolvimento backend eu também estudo sobre desenvolvimento de front-end também. Busco constantemente novos desafios e oportunidades para crescimento profissional.",
+    "ingles": "I'm dedicating myself to personal projects to consolidate knowledge, clarify doubts, and improve programming skills, although focusing more on backend development i also study front-end development. I'm constantly seeking new challenges and opportunities for professional growth."
+  },
+  "about_me_projects_button": {
+    "portugues": "Ver Projetos",
+    "ingles": "See Projects"
   }
+
 
 }
