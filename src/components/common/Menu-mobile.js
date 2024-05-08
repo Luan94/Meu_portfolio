@@ -6,6 +6,8 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faBars, faTimes } from '@fortawesome/free-solid-svg-icons'; 
 import LanguageSwitch from "./Menu-LanguageButton";
 import Logo from '../../assets/logos/Logo.png';
+import MenuData from '../data/menu-items.json'
+import translationUtils from "../../hooks/translationUtils";
 
 const MobileMenuWrapper = styled.div`
   position: fixed;
@@ -58,11 +60,17 @@ const MenuMobile = ({ changeLanguage }) => {
     setMenuState({ ...menuState, isOpen: !menuState.isOpen });
   };
 
+  const [language, setLanguage] = useState(() => {
+    const storedLanguage = localStorage.getItem('language');
+    return storedLanguage || 'portugues';
+  });
+
   const handleLanguageChange = (lang) => {
-    setMenuState({ ...menuState, language: lang });
+    setLanguage(lang);
     changeLanguage(lang);
     localStorage.setItem('language', lang);
   };
+
 
   return (
     <>
@@ -75,10 +83,11 @@ const MenuMobile = ({ changeLanguage }) => {
         <MobileMenuWrapper>
           <MobileMenuContainer>
             <MobileMenuItems>
-              <MenuItem href="#">Home</MenuItem>
-              <MenuItem href="#about-me">About</MenuItem>
-              <MenuItem href="#">Services</MenuItem>
-              <MenuItem href="#">Contact</MenuItem>
+              {Object.keys(MenuData).map((key) => (
+                <MenuItem key={key} href={MenuData[key].link}>
+                  {translationUtils('menu_item_language', language, MenuData[key])}
+                </MenuItem>
+        ))}
             </MobileMenuItems>
           </MobileMenuContainer>
         </MobileMenuWrapper>

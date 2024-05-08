@@ -17,6 +17,7 @@ const MenuWrapper = styled.div`
   background-color: black;
   z-index: 999;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  padding: 10px;
 
   &.hidden {
     top: -100%;

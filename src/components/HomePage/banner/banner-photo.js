@@ -20,8 +20,7 @@ const gradientAnimation = keyframes`
 `;
 
 const Image = styled.img`
-  ${tw`rounded-full w-1/2`}
-  object-fit: cover;
+  ${tw`rounded-full w-1/2 h-auto`}
   max-width: 100%;
   background: linear-gradient(90deg, #ffffff, #FF6347); 
   outline: 4px solid transparent; 
@@ -35,10 +34,16 @@ const ColumnPhoto = styled.div`
   ${tw`w-full`}
 `;
 
-const BannerPhoto = ({ language }) => {
+const BannerPhoto = () => {
   return (
     <ColumnPhoto>
-      <Image src={ImageSrc} alt="LuanPhoto" />
+      <Image
+        src={ImageSrc}
+        alt="LuanPhoto"
+        loading="lazy"
+        width="100%" 
+        height="auto"
+      />
     </ColumnPhoto>
   );
 };

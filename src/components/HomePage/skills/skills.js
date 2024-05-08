@@ -71,7 +71,7 @@ const StacksSection = ({ language }) => {
   const { ref, inView } = useInView({ triggerOnce: true });
   const stackItemsRef = useRef([]);
   const categoryRef = useRef([]);
-  const [totalItems, setTotalItems] = useState(0);
+  
 
 
   useEffect(() => {
