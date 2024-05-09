@@ -1,10 +1,20 @@
 const path = require('path');
 
 module.exports = {
-  // Outras configurações do Webpack...
   resolve: {
+    extensions: ['.tsx', '.ts', '.js'],
     alias: {
       '@': path.resolve(__dirname, 'src')
     }
-  }
+  },
+  module: {
+    rules: [
+      
+      {
+        test: /\.tsx?$/,
+        exclude: /node_modules/,
+        use: 'ts-loader',
+      },
+    ],
+  },
 };
