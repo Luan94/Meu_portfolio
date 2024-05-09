@@ -5,7 +5,7 @@ import styled from "styled-components";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faBars, faTimes } from '@fortawesome/free-solid-svg-icons'; 
 import LanguageSwitch from "./Menu-LanguageButton";
-import Logo from '../../assets/logos/Logo.png';
+import Logo from '../../assets/logos/Logo.webp';
 import MenuData from '../data/menu-items.json'
 import translationUtils from "../../hooks/translationUtils";
 
