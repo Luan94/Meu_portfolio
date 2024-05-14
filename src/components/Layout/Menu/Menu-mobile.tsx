@@ -3,8 +3,11 @@ import styled from "styled-components";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faBars, faTimes } from '@fortawesome/free-solid-svg-icons'; 
 import LanguageSwitch from "./Menu-LanguageButton";
-import MenuData from '../../data/menu-items.json'
-import translationUtils from "../../utils/translationUtils";
+import MenuData from '../../../data/menu-items.json'
+import translationUtils from "../../../utils/translationUtils";
+import { Link } from 'react-router-dom';
+import tw from 'twin.macro';
+
 
 interface MenuState {
   isOpen: boolean;
@@ -12,12 +15,12 @@ interface MenuState {
 }
 
 const MobileMenuWrapper = styled.div`
+${tw`bg-zinc-950 shadow-md`}
   position: fixed;
   top: 0;
   left: 0;
   right: 0;
-  bottom: 0;
-  background-color: rgba(0, 0, 0, 0.8);
+  bottom: 0; 
   z-index: 999;
   backdrop-filter: blur(5px); 
 `;
@@ -35,7 +38,7 @@ const MobileMenuItems = styled.div`
   text-align: center;
 `;
 
-const MenuItem = styled.a`
+const MenuItem = styled.div`
   color: white; 
   font-weight: 600;
   text-decoration: none;
@@ -58,7 +61,7 @@ interface Props {
 
 const MenuMobile: React.FC<Props> = ({ changeLanguage }) => {
   
-  const Logo = require('../../assets/logos/Logo.webp') as string;
+  const Logo = require('../../../assets/logos/Logo.webp') as string;
 
   const [menuState, setMenuState] = useState<MenuState>({
     isOpen: false,
@@ -83,7 +86,7 @@ const MenuMobile: React.FC<Props> = ({ changeLanguage }) => {
   return (
     <>
       <div className="menu-mobile-header" style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', padding: '1rem', position: 'fixed', top: 0, left: 0, right: 0, backgroundColor: 'black', zIndex: 1000 }}>
-        <LogoMobile src={Logo} alt="Logo"/>
+        <Link to="/portfolio"><LogoMobile src={Logo} alt="Logo"/></Link>
         <FontAwesomeIcon icon={menuState.isOpen ? faTimes : faBars} onClick={handleMenuToggle} style={{ color: 'white', cursor: 'pointer', fontSize: '1.5rem' }} /> 
         <LanguageSwitch language={menuState.language} handleLanguageChange={handleLanguageChange} />
       </div>
@@ -92,9 +95,11 @@ const MenuMobile: React.FC<Props> = ({ changeLanguage }) => {
           <MobileMenuContainer>
             <MobileMenuItems>
               {Object.keys(MenuData).map((key) => (
-                <MenuItem key={key} href={MenuData[key].link}>
+                <Link to={MenuData[key].link} key={key}>
+                <MenuItem>
                   {translationUtils('menu_item_language', language, MenuData[key])}
                 </MenuItem>
+                </Link>
               ))}
             </MobileMenuItems>
           </MobileMenuContainer>

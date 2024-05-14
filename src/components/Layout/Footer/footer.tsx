@@ -3,17 +3,17 @@ import tw from 'twin.macro';
 import styled from 'styled-components';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faGithub, faLinkedin } from '@fortawesome/free-brands-svg-icons';
-import FooterTxt from '../../data/titles_and_others.json';
-import translationUtils from '../../utils/translationUtils';
+import FooterTxt from '../../../data/titles_and_others.json';
+import translationUtils from '../../../utils/translationUtils';
 
 
 const FooterWrapper = styled.footer`
-  ${tw`text-white p-4`}
-  background-color: rgb(8,8,8);
+  ${tw`text-white p-4 bg-zinc-950 shadow-md`}
+  
 `;
 
 const FooterInnerWrapper = styled.div`
-  ${tw`container mx-auto flex justify-between items-center`}
+  ${tw`container mx-auto md:flex sm:block justify-between items-center`}
 `;
 
 const FooterTextWrapper = styled.div`
@@ -25,7 +25,7 @@ const FooterLeftText = styled.div`
 `;
 
 const FooterSocialMediaWrapper = styled.div`
-  ${tw`flex`}
+  ${tw`flex sm:place-content-center sm:mt-2`}
 `;
 
 const FooterSocialButton = styled.a`
@@ -33,7 +33,7 @@ const FooterSocialButton = styled.a`
 `;
 
 const FooterRightText = styled.p`
-  ${tw`self-center mr-2`}
+  ${tw`self-center mr-2 sm:place-content-center`}
 `;
 
 interface FooterProps {
@@ -42,7 +42,7 @@ interface FooterProps {
 
 const Footer: React.FC<FooterProps> = ({ language }) => {
   return (
-    <FooterWrapper>
+    <FooterWrapper id="footer">
       <FooterInnerWrapper>
         <FooterTextWrapper>
           <FooterLeftText>{translationUtils('footer_made_with_heart', language, FooterTxt)}</FooterLeftText>

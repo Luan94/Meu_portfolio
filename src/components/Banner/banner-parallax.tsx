@@ -1,17 +1,17 @@
 import React, { useState, useEffect } from 'react';
 import styled from 'styled-components';
 
-// Importando as imagens e convertendo para string
+
 const CircleImageSrc = require('../../assets/images/banner/circle.webp') as string;
 const SemiCircleImageSrc = require('../../assets/images/banner/semi-circle.webp') as string;
 const DotsImageSrc = require('../../assets/images/banner/dots.webp') as string;
 
-// Definição do tipo para as propriedades do componente
+
 interface BannerParallaxProps {
   mousePosition: { x: number; y: number };
 }
 
-// Estilização do componente de imagem
+
 const ParallaxImage = styled.img`
   position: absolute;
   transform: translate(-50%, -50%);
@@ -33,7 +33,7 @@ const ParallaxImage = styled.img`
   }
 `;
 
-// Função para gerar as posições das imagens
+
 const generateImages = () => {
   return Array.from({ length: 10 }).map(() => ({
     top: Math.random() * 100,
@@ -41,7 +41,7 @@ const generateImages = () => {
   }));
 };
 
-// Componente BannerParallax
+
 const BannerParallax: React.FC<BannerParallaxProps> = ({ mousePosition }) => {
   const [images, setImages] = useState(generateImages());
 

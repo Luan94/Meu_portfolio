@@ -4,21 +4,21 @@
         "ingles": "About me",
         "portugues": "Sobre mim"
       },
-      "link": "#aboutmeWrapper"
+      "link": "portfolio/#about-me"
     },
     "menu_stacks": {
       "menu_item_language": {
         "ingles": "My Stacks",
         "portugues": "Minhas Stacks"
       },
-      "link": "#StacksWrapper"
+      "link": "portfolio/#Stacks"
     },
     "menu_projects": {
       "menu_item_language": {
         "ingles": "My Projects",
         "portugues": "Meus Projetos"
       },
-      "link": "#ProjectsWrapper"
+      "link": "portfolio/projects"
     }
   }
   

@@ -6,6 +6,7 @@ import { faChevronRight } from '@fortawesome/free-solid-svg-icons';
 import translationUtils from '../../utils/translationUtils';
 import aboutme from '../../data/aboutme.json';
 import { useInView } from 'react-intersection-observer';
+import { Link } from 'react-router-dom';
 
 interface AboutMeProps {
   language: string;
@@ -44,7 +45,7 @@ const Text = styled.div`
 `;
 
 const ProjectBox = styled.div<{ $fadein: boolean }>`
-  ${tw`w-full lg:w-2/5 bg-gray-800 rounded-lg shadow-sm lg:ml-6 mt-6 lg:mt-0 bg-neutral-950`}
+  ${tw`w-full lg:w-2/5 bg-gray-800 rounded-lg shadow-sm lg:ml-6 mt-6 lg:mt-0 bg-zinc-950 shadow-md`}
   opacity: ${({ $fadein }) => ($fadein ? 1 : 0)};
   transition: opacity 1s ease-in-out;
 `;
@@ -57,7 +58,7 @@ const ProjectDescription = styled.p`
   ${tw`text-sm leading-relaxed`}
 `;
 
-const Button = styled.a`
+const Button = styled.div`
   ${tw`inline-block mt-4 px-6 py-3 bg-blue-500 text-white rounded-lg text-center font-semibold hover:bg-blue-600 transition-colors outline outline-white outline-1 no-underline bg-transparent`}
   transition: 0.2s ease;
   &:hover {
@@ -125,7 +126,7 @@ const AboutMe: React.FC<AboutMeProps> = ({ language }) => {
             {translationUtils('about_me_projects_content', language, aboutme)}
           </ProjectDescription>
           <ProjectButtonWrapper>
-            <Button href="/projetos">{translationUtils('about_me_projects_button', language, aboutme)} <ChevronRightIcon icon={faChevronRight} /></Button>
+            <Link to="/portfolio/projects"><Button>{translationUtils('about_me_projects_button', language, aboutme)} <ChevronRightIcon icon={faChevronRight} /></Button></Link>
           </ProjectButtonWrapper>
         </ProjectContentWrapper>
       </ProjectBox>

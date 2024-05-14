@@ -35,7 +35,7 @@ const StackItemsContainer = styled.div`
 `;
 
 const StackItem = styled.div<{ $isvisible: boolean }>`
-  ${tw`flex flex-col items-center justify-center text-center text-white bg-neutral-950 rounded-lg p-4 cursor-pointer`}
+  ${tw`flex flex-col items-center justify-center text-center text-white bg-zinc-950 rounded-lg p-4 cursor-pointer shadow-md `}
   width: calc(100% / 6 - 2rem); 
   opacity: ${({ $isvisible }) => ($isvisible ? 1 : 0)};
   transition: opacity 0.7s ease;
@@ -53,7 +53,7 @@ const StackItem = styled.div<{ $isvisible: boolean }>`
   }
 
   &:hover {
-    background-color: rgba(255, 255, 255, 0.1);
+    background-color: rgb(24 24 27);
   }
 `;
 
@@ -148,7 +148,7 @@ const StacksSection: React.FC<StacksSectionProps> = ({ language }) => {
                     $isvisible={inView}
                     style={{ transitionDelay: `${totalItemsBeforeCategory * 0.1 + index * 0.1}s` }}
                   >
-                    <StackImg src={stack.skill_icon} alt={stack.skill_name} />
+                    <StackImg loading="lazy" src={stack.skill_icon} alt={stack.skill_name} />
                     <StackTitle>{stack.skill_name}</StackTitle>
                   </StackItem>
                 ))}

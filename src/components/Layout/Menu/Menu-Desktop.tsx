@@ -2,8 +2,10 @@ import React, { useState, useEffect } from "react";
 import styled from "styled-components";
 import tw from 'twin.macro';
 import LanguageSwitch from "./Menu-LanguageButton";
-import MenuData from '../../data/menu-items.json';
-import translationUtils from "../../utils/translationUtils";
+import MenuData from '../../../data/menu-items.json';
+import translationUtils from "../../../utils/translationUtils";
+import { Link } from 'react-router-dom';
+
 
 interface ScrollState {
   prevScrollPos: number;
@@ -11,16 +13,14 @@ interface ScrollState {
 }
 
 const MenuWrapper = styled.div`
+${tw`bg-zinc-950 shadow-md`}
   position: fixed;
   top: 0;
   left: 0;
   right: 0;
   transition: top 0.3s;
-  background-color: black;
   z-index: 999;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
   padding: 10px;
-
   &.hidden {
     top: -100%;
   }
@@ -33,7 +33,7 @@ const MenuContainer = styled.nav`
   align-items: center;
 `;
 
-const MenuItem = styled.a`
+const MenuItem = styled.div`
   color: white;
   font-weight: 600;
   text-decoration: none;
@@ -46,6 +46,10 @@ const MenuItem = styled.a`
   }
 `;
 
+const NavWrapper = styled.div`
+  display:flex;
+`;
+
 const LogoImg = styled.img``;
 
 interface Props {
@@ -54,7 +58,7 @@ interface Props {
 
 const MenuDesktopDesktop: React.FC<Props> = ({ changeLanguage }) => {
   
-  const Logo = require('../../assets/logos/Logo.webp') as string;
+  const Logo = require('../../../assets/logos/Logo.webp') as string;
 
   const [scrollState, setScrollState] = useState<ScrollState>({
     prevScrollPos: 0,
@@ -86,14 +90,16 @@ const MenuDesktopDesktop: React.FC<Props> = ({ changeLanguage }) => {
   return (
     <MenuWrapper className={!scrollState.isVisible ? "hidden" : ""}>
       <MenuContainer>
-        <LogoImg src={Logo} />
-        <div>
+      <Link to="/portfolio"><LogoImg src={Logo} alt="Logo"/></Link>
+        <NavWrapper>
           {Object.keys(MenuData).map((key) => (
-            <MenuItem key={key} href={MenuData[key].link}>
+            <Link to={MenuData[key].link} key={key}>
+            <MenuItem>
               {translationUtils('menu_item_language', language, MenuData[key])}
             </MenuItem>
+            </Link>
           ))}
-        </div>
+        </NavWrapper>
         <LanguageSwitch language={language} handleLanguageChange={handleLanguageChange} />
       </MenuContainer>
     </MenuWrapper>
