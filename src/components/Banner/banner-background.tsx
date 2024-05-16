@@ -4,10 +4,10 @@ import styled from 'styled-components';
 
 
 
-// Definindo as propriedades do componente BannerBackground
+
 interface BannerBackgroundProps {}
 
-// Estilizando o componente de fundo do banner
+
 
 const backgroundImage = require('../../assets/images/banner/bg-coding-3.webp') as string;
 
@@ -23,7 +23,7 @@ const Background = styled.div`
   filter: blur(4px) grayscale(95%);
 `;
 
-// Componente de fundo do banner
+
 const BannerBackground: React.FC<BannerBackgroundProps> = () => {
   return <Background />;
 };

@@ -1,24 +1,35 @@
-import React, { useState, useEffect } from 'react';
-import styled from 'styled-components';
-
+import React from 'react';
+import styled, { keyframes } from 'styled-components';
 
 const CircleImageSrc = require('../../assets/images/banner/circle.webp') as string;
 const SemiCircleImageSrc = require('../../assets/images/banner/semi-circle.webp') as string;
 const DotsImageSrc = require('../../assets/images/banner/dots.webp') as string;
 
-
 interface BannerParallaxProps {
-  mousePosition: { x: number; y: number };
+  containerWidth: number;
 }
 
 
+//Velocidade da animação de movimento
+const randomDirection = () => (Math.random() < 0.5 ? -1 : 1) * (Math.random() * 12);
+
+
+const moveAnimation = keyframes`
+  0%, 100% {
+    transform: translate(${randomDirection()}px, ${randomDirection()}px);
+  }
+  50% {
+    transform: translate(${-randomDirection()}px, ${-randomDirection()}px);
+  }
+`;
+
 const ParallaxImage = styled.img`
   position: absolute;
-  transform: translate(-50%, -50%);
   filter: grayscale(100%);
   opacity: 0.5;
   transition: transform 0.3s ease-in-out;
   width: 8rem;
+  animation: ${moveAnimation} 10s linear infinite; // Aplicando a animação
 
   @media (max-width: 1440px) {
     width: 7rem;
@@ -33,66 +44,40 @@ const ParallaxImage = styled.img`
   }
 `;
 
+const BannerParallax: React.FC<BannerParallaxProps> = ({ containerWidth }) => {
+  const positions = [
+    { top: '10%', left: '10%' },
+    { top: '20%', left: '30%' },
+    { top: '30%', left: '50%' },
+    { top: '40%', left: '70%' },
+    { top: '50%', left: '90%' },
+    { top: '30%', left: '10%' },
+    { top: '50%', left: '30%' },
+    { top: '70%', left: '50%' },
+    { top: '90%', left: '70%' },
+    { top: '70%', left: '10%' },
+    { top: '90%', left: '30%' },
+    { top: '10%', left: '70%' },
+  ];
 
-const generateImages = () => {
-  return Array.from({ length: 10 }).map(() => ({
-    top: Math.random() * 100,
-    left: Math.random() * 100,
-  }));
-};
-
-
-const BannerParallax: React.FC<BannerParallaxProps> = ({ mousePosition }) => {
-  const [images, setImages] = useState(generateImages());
-
-  useEffect(() => {
-    const handleResize = () => {
-      setImages(generateImages());
-    };
-
-    window.addEventListener('resize', handleResize);
-
-    return () => {
-      window.removeEventListener('resize', handleResize);
-    };
-  }, []);
+  const images = [
+    { src: CircleImageSrc, alt: 'parallax-circle-img' },
+    { src: SemiCircleImageSrc, alt: 'parallax-semi-circle-img' },
+    { src: DotsImageSrc, alt: 'parallax-dots-img' },
+  ];
 
   return (
     <>
-      {images.map((position, index) => {
-        let imageSrc;
-        switch (index % 3) {
-          case 0:
-            imageSrc = CircleImageSrc;
-            break;
-          case 1:
-            imageSrc = SemiCircleImageSrc;
-            break;
-          case 2:
-            imageSrc = DotsImageSrc;
-            break;
-          default:
-            break;
-        }
-
-        const bannerWidth = window.innerWidth;
-        const bannerHeight = window.innerHeight;
-        const sensitivity = 450;
-
-        const deltaX = (bannerWidth / 2 - mousePosition.x) / sensitivity;
-        const deltaY = (bannerHeight / 2 - mousePosition.y) / sensitivity;
-
-        return (
+      {positions.map((position, index) => (
+        <React.Fragment key={index}>
           <ParallaxImage
-            key={index}
-            src={imageSrc}
-            style={{
-              top: `${position.top + deltaY}%`,
-              left: `${position.left + deltaX}%`,
-            }}
+            aria-label={`parallax-img-${index}`}
+            src={images[index % 3].src}
+            alt={`${images[index % 3].alt}-${index}`}
+            style={position}
           />
-        );
-      })}
+        </React.Fragment>
+      ))}
     </>
   );
 };

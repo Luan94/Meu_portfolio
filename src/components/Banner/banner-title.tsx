@@ -47,10 +47,10 @@ const BannerTitle: React.FC = () => {
         <TypewriterHook text="Jr Fullstack Web Developer" delay={100} />
       </TypewriterText>
       <SocialContainer>
-        <SocialButton href="https://github.com/Luan94" target="_blank">
+        <SocialButton href="https://github.com/Luan94" target="_blank" aria-label="LinkedIn">
           <FontAwesomeIcon icon={faGithub} size="2x" />
         </SocialButton>
-        <SocialButton href="https://www.linkedin.com/in/luanvilasboas-desenvolvedor/" target="_blank">
+        <SocialButton href="https://www.linkedin.com/in/luanvilasboas-desenvolvedor/" target="_blank" aria-label="Github">
           <FontAwesomeIcon icon={faLinkedin} size="2x" />
         </SocialButton>
       </SocialContainer>

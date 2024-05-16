@@ -81,6 +81,7 @@ const MenuMobile: React.FC<Props> = ({ changeLanguage }) => {
     setLanguage(lang);
     changeLanguage(lang);
     localStorage.setItem('language', lang);
+    setMenuState({ ...menuState, language: lang });
   };
 
   return (

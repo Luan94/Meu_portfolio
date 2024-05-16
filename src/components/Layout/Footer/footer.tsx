@@ -17,7 +17,7 @@ const FooterInnerWrapper = styled.div`
 `;
 
 const FooterTextWrapper = styled.div`
-  ${tw`flex items-center`}
+  ${tw`flex items-center place-content-center`}
 `;
 
 const FooterLeftText = styled.div`
@@ -25,7 +25,7 @@ const FooterLeftText = styled.div`
 `;
 
 const FooterSocialMediaWrapper = styled.div`
-  ${tw`flex sm:place-content-center sm:mt-2`}
+  ${tw`flex sm:mt-2 place-content-center`}
 `;
 
 const FooterSocialButton = styled.a`
@@ -33,7 +33,7 @@ const FooterSocialButton = styled.a`
 `;
 
 const FooterRightText = styled.p`
-  ${tw`self-center mr-2 sm:place-content-center`}
+  ${tw`self-center mr-2`}
 `;
 
 interface FooterProps {
@@ -49,10 +49,10 @@ const Footer: React.FC<FooterProps> = ({ language }) => {
         </FooterTextWrapper>
         <FooterSocialMediaWrapper>
           <FooterRightText>{translationUtils('footer_follow_me', language, FooterTxt)}</FooterRightText>
-          <FooterSocialButton href="https://www.linkedin.com/in/luanvilasboas-desenvolvedor/" target="_blank">
+          <FooterSocialButton href="https://www.linkedin.com/in/luanvilasboas-desenvolvedor/" target="_blank" aria-label="LinkedIn">
             <FontAwesomeIcon icon={faLinkedin} size="2x" />
           </FooterSocialButton>
-          <FooterSocialButton href="https://github.com/Luan94" target="_blank">
+          <FooterSocialButton href="https://github.com/Luan94" target="_blank" aria-label="GitHub">
             <FontAwesomeIcon icon={faGithub} size="2x" />
           </FooterSocialButton>
         </FooterSocialMediaWrapper>

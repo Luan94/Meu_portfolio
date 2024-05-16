@@ -42,25 +42,21 @@ const Root: React.FC = () => {
     localStorage.setItem('language', lang);
   };
 
-  return (
-    <div>
-      {isLoading ? (
-        <LoadingAnimation />
-      ) : (
-        <>
+  if (isLoading) {
+    return <LoadingAnimation />;
+  } else {
+    return (
+      <div>
         <GlobalStyles />
-                      
-            <Menu changeLanguage={changeLanguage} />
-            <Routes>
-              <Route path="/portfolio" element={<HomePage language={language} />} />
-              <Route path="/portfolio/projects" element={<ProjectsPage language={language} />} />
-            </Routes>
-            <Footer language={language} />
-          
-        </>
-      )}
-    </div>
-  );
+        <Menu changeLanguage={changeLanguage} />
+        <Routes>
+          <Route path="/portfolio" element={<HomePage language={language} />} />
+          <Route path="/portfolio/projects" element={<ProjectsPage language={language} />} />
+        </Routes>
+        <Footer language={language} />
+      </div>
+    );
+  }
 };
 
 const rootElement = document.getElementById('root');
