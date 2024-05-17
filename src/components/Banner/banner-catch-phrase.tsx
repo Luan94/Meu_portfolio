@@ -52,7 +52,7 @@ const CatchPhraseContent = styled.p`
 // Componente BannerCatchPhrase
 const BannerCatchPhrase: React.FC<BannerCatchPhraseProps> = ({ language }) => {
   return (
-    <>
+    <div>
       <CatchPhrase>
         <CatchPhraseContent>
           <QuoteIconL icon={faQuoteLeft} /> 
@@ -61,7 +61,7 @@ const BannerCatchPhrase: React.FC<BannerCatchPhraseProps> = ({ language }) => {
         </CatchPhraseContent>
         <AuthorName>Seneca</AuthorName>
       </CatchPhrase>
-    </>
+    </div>
   );
 };
 

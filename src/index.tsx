@@ -42,9 +42,7 @@ const Root: React.FC = () => {
     localStorage.setItem('language', lang);
   };
 
-  if (isLoading) {
-    return <LoadingAnimation />;
-  } else {
+ 
     return (
       <div>
         <GlobalStyles />
@@ -56,8 +54,8 @@ const Root: React.FC = () => {
         <Footer language={language} />
       </div>
     );
-  }
-};
+  };
+
 
 const rootElement = document.getElementById('root');
 if (rootElement) {

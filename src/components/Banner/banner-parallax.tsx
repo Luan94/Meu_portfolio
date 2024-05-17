@@ -67,18 +67,18 @@ const BannerParallax: React.FC<BannerParallaxProps> = ({ containerWidth }) => {
   ];
 
   return (
-    <>
+    <div>
       {positions.map((position, index) => (
-        <React.Fragment key={index}>
+        <div key={index}>
           <ParallaxImage
             aria-label={`parallax-img-${index}`}
             src={images[index % 3].src}
             alt={`${images[index % 3].alt}-${index}`}
             style={position}
           />
-        </React.Fragment>
+        </div>
       ))}
-    </>
+    </div>
   );
 };
 

@@ -85,7 +85,7 @@ const MenuMobile: React.FC<Props> = ({ changeLanguage }) => {
   };
 
   return (
-    <>
+    <div>
       <div className="menu-mobile-header" style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', padding: '1rem', position: 'fixed', top: 0, left: 0, right: 0, backgroundColor: 'black', zIndex: 1000 }}>
         <Link to="/portfolio"><LogoMobile src={Logo} alt="Logo"/></Link>
         <FontAwesomeIcon icon={menuState.isOpen ? faTimes : faBars} onClick={handleMenuToggle} style={{ color: 'white', cursor: 'pointer', fontSize: '1.5rem' }} /> 
@@ -106,7 +106,7 @@ const MenuMobile: React.FC<Props> = ({ changeLanguage }) => {
           </MobileMenuContainer>
         </MobileMenuWrapper>
       )}
-    </>
+    </div>
   );
 };
 
