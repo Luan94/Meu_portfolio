@@ -4,28 +4,15 @@ import { BrowserRouter as Router, Routes, Route, useLocation } from 'react-route
 import GlobalStyles from './components/Layout/GlobalStyles';
 import Menu from './components/Layout/Menu/Menu';
 import Footer from './components/Layout/Footer/footer';
-import LoadingAnimation from './components/Layout/loading-animation';
 import HomePage from './pages/HomePage/HomePage';
 import ProjectsPage from './pages/ProjectsPage/ProjectsPage';
 
 const getLanguageFromStorage = (): string => localStorage.getItem('language') ?? 'portugues';
 
 const Root: React.FC = () => {
-  const [isLoading, setIsLoading] = useState(true);
+
   const [language, setLanguage] = useState<string>(getLanguageFromStorage());
   const location = useLocation();
-
-  useEffect(() => {
-    const handleLoad = () => {
-      setIsLoading(false);
-    };
-
-    window.addEventListener('load', handleLoad);
-
-    return () => {
-      window.removeEventListener('load', handleLoad);
-    };
-  }, []);
 
   useEffect(() => {
     const hash = location.hash;
@@ -44,17 +31,19 @@ const Root: React.FC = () => {
 
  
     return (
-      <div>
-        <GlobalStyles />
-        <Menu changeLanguage={changeLanguage} />
-        <Routes>
-          <Route path="/portfolio" element={<HomePage language={language} />} />
-          <Route path="/portfolio/projects" element={<ProjectsPage language={language} />} />
-        </Routes>
-        <Footer language={language} />
-      </div>
-    );
-  };
+    <div>
+        <>
+            <GlobalStyles />
+            <Menu changeLanguage={changeLanguage} />
+            <Routes>
+              <Route path="/portfolio" element={<HomePage language={language} />} />
+              <Route path="/portfolio/projects" element={<ProjectsPage language={language} />} />
+            </Routes>
+            <Footer language={language} />          
+        </>
+    </div>
+  );
+};
 
 
 const rootElement = document.getElementById('root');

@@ -1,10 +1,9 @@
-import React, { useState } from 'react';
+import React from 'react';
 import Banner from '../../components/Banner/banner';
 import AboutMe from '../../components/AboutMe/aboutme';
 import Skills from '../../components/Stacks/Stacks';
 import BannerDivider from '../../components/Banner/bannerSectionDivider';
 import BannerCatchPhrase from '../../components/Banner/banner-catch-phrase';
-import Footer from '../../components/Layout/Footer/footer';
 
 const getLanguageFromStorage = (): string => localStorage.getItem('language') ?? 'portugues';
 
@@ -14,7 +13,7 @@ interface HomePageProps {
 }
 
 const HomePage: React.FC<HomePageProps> = (props) => {
-  const language = useState<string>(getLanguageFromStorage());
+  
 
   return (
     <div>

@@ -1,15 +1,15 @@
-import React, { useState } from 'react';
+import React from 'react';
 import Skills from '../../components/Stacks/Stacks';
 
 
-const getLanguageFromStorage = (): string => localStorage.getItem('language') ?? 'portugues';
+
 
 interface ProjectPages {
   language: string;
 }
 
 const ProjectsPage: React.FC<ProjectPages> = (props) => {
-  const language = useState<string>(getLanguageFromStorage());
+
 
   return (
     <div>

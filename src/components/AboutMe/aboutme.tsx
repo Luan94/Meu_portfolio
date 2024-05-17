@@ -113,7 +113,7 @@ const AboutMe: React.FC<AboutMeProps> = ({ language }) => {
       <Column>
         <FadeInAnimation $fadein={fadeInText}>
           <Text>
-            <h3>{translationUtils('about_me_title', language, aboutme)}</h3>
+            <h4>{translationUtils('about_me_title', language, aboutme)}</h4>
             {translationUtils('about_me_content', language, aboutme)}
           </Text>
         </FadeInAnimation>

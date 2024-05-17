@@ -39,7 +39,7 @@ const ColumnPhoto = styled.div`
 // Componente BannerPhoto
 const BannerPhoto: React.FC = () => {
 
-  const  ImageSrc = require('../../assets/images/AboutMe/pic.webp') as string;
+  const  ImageSrc = require('../../assets/images/AboutMe/profile-pic.webp') as string;
 
   return (
     <ColumnPhoto>
