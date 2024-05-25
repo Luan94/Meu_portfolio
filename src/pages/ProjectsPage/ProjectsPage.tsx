@@ -1,5 +1,5 @@
 import React from 'react';
-import Skills from '../../components/Stacks/Stacks';
+import ProjectsSection from '../../components/ProjectsCards/projects-card';
 
 
 
@@ -12,9 +12,9 @@ const ProjectsPage: React.FC<ProjectPages> = (props) => {
 
 
   return (
-    <div>
-        <Skills language={props.language} />
-    </div>
+    
+         <ProjectsSection language={props.language} />
+    
   );
 };
 

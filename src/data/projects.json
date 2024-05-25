@@ -1,0 +1,362 @@
+[
+    {
+        "project_name": {
+            "portugues": "Meu Portfolio",
+            "ingles": "My Portfolio"
+        },
+        "techs": ["React", "Typescript", "Tailwind", "CSS"],
+        "project_image": "https://i.imgur.com/d9HzPM4.png",
+        "project_image_alt": {
+            "portugues": "Imagem do Projeto1",
+            "ingles": "Project1 Image"
+        },
+        "project_description": {
+            "portugues": "O projeto em que você está agora, desenvolvido em React juntamente com Typescript , Tailwind, Styled Components e CSS",
+            "ingles": "[ENG] O projeto em que você está agora, desenvolvido em React juntamente com Typescript , Tailwind, Styled Components e CSS"
+        },
+        "project_link": "https://luan94.github.io/portfolio/",
+        "project_link_alt": {
+            "portugues": "Link para o projeto do portfolio",
+            "ingles": "[ENG] Link para o projeto do portfolio"
+        },
+        "project_github_repo": "https://github.com/Luan94/portfolio",
+        "project_github_repo_alt": {
+            "portugues": "Link para o repositório do projeto do portfolio",
+            "ingles": "[ENG] Link para o repositório do projeto do portfolio"
+        },
+        "summary": {
+            "portugues": "Resumo do projeto 1",
+            "ingles": "Summary of project 1"
+        }
+    },
+    {
+        "project_name": {
+            "portugues": "Projeto2",
+            "ingles": "Project2"
+        },
+        "techs": ["Node.js", "Express", "MongoDB", "Vue.js"],
+        "project_image": "",
+        "project_image_alt": {
+            "portugues": "Imagem do Projeto2",
+            "ingles": "Project2 Image"
+        },
+        "project_description": {
+            "portugues": "Descrição2",
+            "ingles": "Description2"
+        },
+        "project_link": "https://www.example.com/project2",
+        "project_link_alt": {
+            "portugues": "Link para Projeto2",
+            "ingles": "Link to Project2"
+        },
+        "project_github_repo": "https://github.com/user/project2",
+        "project_github_repo_alt": {
+            "portugues": "Repositório GitHub do Projeto2",
+            "ingles": "Project2 GitHub Repository"
+        },
+        "summary": {
+            "portugues": "Resumo do projeto 2",
+            "ingles": "Summary of project 2"
+        }
+    },
+    {
+        "project_name": {
+            "portugues": "Projeto3",
+            "ingles": "Project3"
+        },
+        "techs": ["Node.js", "Express", "MongoDB", "Vue.js"],
+        "project_image": "",
+        "project_image_alt": {
+            "portugues": "Imagem do Projeto3",
+            "ingles": "Project3 Image"
+        },
+        "project_description": {
+            "portugues": "Descrição3",
+            "ingles": "Description3"
+        },
+        "project_link": "https://www.example.com/project3",
+        "project_link_alt": {
+            "portugues": "Link para Projeto3",
+            "ingles": "Link to Project3"
+        },
+        "project_github_repo": "https://github.com/user/project3",
+        "project_github_repo_alt": {
+            "portugues": "Repositório GitHub do Projeto3",
+            "ingles": "Project3 GitHub Repository"
+        },
+        "summary": {
+            "portugues": "Resumo do projeto 3",
+            "ingles": "Summary of project 3"
+        }
+    },
+    {
+        "project_name": {
+            "portugues": "Projeto4",
+            "ingles": "Project4"
+        },
+        "techs": ["Node.js", "Express", "MongoDB", "Vue.js"],
+        "project_image": "",
+        "project_image_alt": {
+            "portugues": "Imagem do Projeto4",
+            "ingles": "Project4 Image"
+        },
+        "project_description": {
+            "portugues": "Descrição4",
+            "ingles": "Description4"
+        },
+        "project_link": "https://www.example.com/project4",
+        "project_link_alt": {
+            "portugues": "Link para Projeto4",
+            "ingles": "Link to Project4"
+        },
+        "project_github_repo": "https://github.com/user/project4",
+        "project_github_repo_alt": {
+            "portugues": "Repositório GitHub do Projeto4",
+            "ingles": "Project4 GitHub Repository"
+        },
+        "summary": {
+            "portugues": "Resumo do projeto 4",
+            "ingles": "Summary of project 4"
+        }
+    },
+    {
+        "project_name": {
+            "portugues": "Projeto5",
+            "ingles": "Project5"
+        },
+        "techs": ["Node.js", "Express", "MongoDB", "Vue.js"],
+        "project_image": "",
+        "project_image_alt": {
+            "portugues": "Imagem do Projeto5",
+            "ingles": "Project5 Image"
+        },
+        "project_description": {
+            "portugues": "Descrição5",
+            "ingles": "Description5"
+        },
+        "project_link": "https://www.example.com/project5",
+        "project_link_alt": {
+            "portugues": "Link para Projeto5",
+            "ingles": "Link to Project5"
+        },
+        "project_github_repo": "https://github.com/user/project5",
+        "project_github_repo_alt": {
+            "portugues": "Repositório GitHub do Projeto5",
+            "ingles": "Project5 GitHub Repository"
+        },
+        "summary": {
+            "portugues": "Resumo do projeto 5",
+            "ingles": "Summary of project 5"
+        }
+    },
+    {
+        "project_name": {
+            "portugues": "Projeto6",
+            "ingles": "Project6"
+        },
+        "techs": ["Node.js", "Express", "MongoDB", "Vue.js"],
+        "project_image": "",
+        "project_image_alt": {
+            "portugues": "Imagem do Projeto6",
+            "ingles": "Project6 Image"
+        },
+        "project_description": {
+            "portugues": "Descrição6",
+            "ingles": "Description6"
+        },
+        "project_link": "https://www.example.com/project6",
+        "project_link_alt": {
+            "portugues": "Link para Projeto6",
+            "ingles": "Link to Project6"
+        },
+        "project_github_repo": "https://github.com/user/project6",
+        "project_github_repo_alt": {
+            "portugues": "Repositório GitHub do Projeto6",
+            "ingles": "Project6 GitHub Repository"
+        },
+        "summary": {
+            "portugues": "Resumo do projeto 6",
+            "ingles": "Summary of project 6"
+        }
+    },
+    {
+        "project_name": {
+            "portugues": "Projeto7",
+            "ingles": "Project7"
+        },
+        "techs": ["Node.js", "Express", "MongoDB", "Vue.js"],
+        "project_image": "",
+        "project_image_alt": {
+            "portugues": "Imagem do Projeto7",
+            "ingles": "Project7 Image"
+        },
+        "project_description": {
+            "portugues": "Descrição7",
+            "ingles": "Description7"
+        },
+        "project_link": "https://www.example.com/project7",
+        "project_link_alt": {
+            "portugues": "Link para Projeto7",
+            "ingles": "Link to Project7"
+        },
+        "project_github_repo": "https://github.com/user/project7",
+        "project_github_repo_alt": {
+            "portugues": "Repositório GitHub do Projeto7",
+            "ingles": "Project7 GitHub Repository"
+        },
+        "summary": {
+            "portugues": "Resumo do projeto 7",
+            "ingles": "Summary of project 7"
+        }
+    },
+    {
+        "project_name": {
+            "portugues": "Projeto8",
+            "ingles": "Project8"
+        },
+        "techs": ["Node.js", "Express", "MongoDB", "Vue.js"],
+        "project_image": "",
+        "project_image_alt": {
+            "portugues": "Imagem do Projeto8",
+            "ingles": "Project8 Image"
+        },
+        "project_description": {
+            "portugues": "Descrição8",
+            "ingles": "Description8"
+        },
+        "project_link": "https://www.example.com/project8",
+        "project_link_alt": {
+            "portugues": "Link para Projeto8",
+            "ingles": "Link to Project8"
+        },
+        "project_github_repo": "https://github.com/user/project8",
+        "project_github_repo_alt": {
+            "portugues": "Repositório GitHub do Projeto8",
+            "ingles": "Project8 GitHub Repository"
+        },
+        "summary": {
+            "portugues": "Resumo do projeto 8",
+            "ingles": "Summary of project 8"
+        }
+    },
+    {
+        "project_name": {
+            "portugues": "Projeto9",
+            "ingles": "Project9"
+        },
+        "techs": ["Node.js", "Express", "MongoDB", "Vue.js"],
+        "project_image": "",
+        "project_image_alt": {
+            "portugues": "Imagem do Projeto9",
+            "ingles": "Project9 Image"
+        },
+        "project_description": {
+            "portugues": "Descrição9",
+            "ingles": "Description9"
+        },
+        "project_link": "https://www.example.com/project9",
+        "project_link_alt": {
+            "portugues": "Link para Projeto9",
+            "ingles": "Link to Project9"
+        },
+        "project_github_repo": "https://github.com/user/project9",
+        "project_github_repo_alt": {
+            "portugues": "Repositório GitHub do Projeto9",
+            "ingles": "Project9 GitHub Repository"
+        },
+        "summary": {
+            "portugues": "Resumo do projeto 9",
+            "ingles": "Summary of project 9"
+        }
+    },
+    {
+        "project_name": {
+            "portugues": "Projeto10",
+            "ingles": "Project10"
+        },
+        "techs": ["Node.js", "Express", "MongoDB", "Vue.js"],
+        "project_image": "",
+        "project_image_alt": {
+            "portugues": "Imagem do Projeto10",
+            "ingles": "Project10 Image"
+        },
+        "project_description": {
+            "portugues": "Descrição10",
+            "ingles": "Description10"
+        },
+        "project_link": "https://www.example.com/project10",
+        "project_link_alt": {
+            "portugues": "Link para Projeto10",
+            "ingles": "Link to Project10"
+        },
+        "project_github_repo": "https://github.com/user/project10",
+        "project_github_repo_alt": {
+            "portugues": "Repositório GitHub do Projeto10",
+            "ingles": "Project10 GitHub Repository"
+        },
+        "summary": {
+            "portugues": "Resumo do projeto 10",
+            "ingles": "Summary of project 10"
+        }
+    },
+    {
+        "project_name": {
+            "portugues": "Projeto11",
+            "ingles": "Project11"
+        },
+        "techs": ["Node.js", "Express", "MongoDB", "Vue.js"],
+        "project_image": "",
+        "project_image_alt": {
+            "portugues": "Imagem do Projeto11",
+            "ingles": "Project11 Image"
+        },
+        "project_description": {
+            "portugues": "Descrição11",
+            "ingles": "Description11"
+        },
+        "project_link": "https://www.example.com/project11",
+        "project_link_alt": {
+            "portugues": "Link para Projeto11",
+            "ingles": "Link to Project11"
+        },
+        "project_github_repo": "https://github.com/user/project11",
+        "project_github_repo_alt": {
+            "portugues": "Repositório GitHub do Projeto11",
+            "ingles": "Project11 GitHub Repository"
+        },
+        "summary": {
+            "portugues": "Resumo do projeto 11",
+            "ingles": "Summary of project 11"
+        }
+    },
+    {
+        "project_name": {
+            "portugues": "Projeto12",
+            "ingles": "Project12"
+        },
+        "techs": ["Node.js", "Express", "MongoDB", "Vue.js"],
+        "project_image": "",
+        "project_image_alt": {
+            "portugues": "Imagem do Projeto12",
+            "ingles": "Project12 Image"
+        },
+        "project_description": {
+            "portugues": "Descrição12",
+            "ingles": "Description12"
+        },
+        "project_link": "https://www.example.com/project12",
+        "project_link_alt": {
+            "portugues": "Link para Projeto12",
+            "ingles": "Link to Project12"
+        },
+        "project_github_repo": "https://github.com/user/project12",
+        "project_github_repo_alt": {
+            "portugues": "Repositório GitHub do Projeto12",
+            "ingles": "Project12 GitHub Repository"
+        },
+        "summary": {
+            "portugues": "Resumo do projeto 12",
+            "ingles": "Summary of project 12"
+        }
+    }
+]

@@ -24,7 +24,7 @@ const TypewriterText = styled.span`
 
 // Estilização do contêiner social
 const SocialContainer = styled.div`
-  ${tw`mt-4`}
+  ${tw`mt-4 mb-4`}
 `;
 
 // Estilização dos botões sociais
@@ -42,6 +42,7 @@ const SocialButton = styled.a`
 const BannerTitle: React.FC = () => {
   return (
     <TextContainer id="banner_titles">
+      
       <Title>Luan Vilas Boas</Title>
       <TypewriterText>
         <TypewriterHook text="Jr Fullstack Web Developer" delay={100} />
@@ -54,6 +55,7 @@ const BannerTitle: React.FC = () => {
           <FontAwesomeIcon icon={faLinkedin} size="2x" />
         </SocialButton>
       </SocialContainer>
+      <small>Esse Portfolio está em processo de construção!!</small>
     </TextContainer>
   );
 };
